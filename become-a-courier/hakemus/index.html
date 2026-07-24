@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Ryhdy lähetiksi · Fin-Delivery</title>
+<meta name="theme-color" content="#0F3D2E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#0F3D2E; --green:#1B7F4B; --green-lt:#6BBF8A; --mint:#F5F9F6;
+    --amber:#E8A33D; --ink:#0A1F17; --paper:#FBFDFC; --line:rgba(15,61,46,.12);
+    --shadow:0 6px 24px rgba(15,61,46,.08);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--mint);line-height:1.55}
+  h1,h2,h3,.brand{font-family:'Sora',sans-serif}
+  a{color:var(--green)}
+  .wrap{max-width:720px;margin:0 auto;padding:0 20px}
+  header{background:var(--forest);color:#fff}
+  .top{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;max-width:720px;margin:0 auto}
+  .brand{font-weight:800;font-size:18px;letter-spacing:.2px;color:#fff;text-decoration:none}
+  .brand span{color:var(--green-lt)}
+  .lang{display:flex;gap:2px;background:rgba(255,255,255,.12);border-radius:999px;padding:3px}
+  .lang button{border:0;background:transparent;color:#cfe6d8;font:600 12px 'Inter';padding:5px 12px;border-radius:999px;cursor:pointer}
+  .lang button.on{background:#fff;color:var(--forest)}
+  .hero{background:var(--forest);color:#fff;padding:8px 0 40px}
+  .hero h1{font-size:32px;font-weight:800;line-height:1.15;margin-bottom:10px}
+  .hero p{color:#cfe6d8;font-size:15px;max-width:560px}
+  .hero .chip{display:inline-block;background:rgba(107,191,138,.2);color:var(--green-lt);font:600 12px 'Inter';padding:5px 12px;border-radius:999px;margin-bottom:16px}
+  main{padding:0 0 60px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:26px 24px;margin-top:-24px}
+  .sec{padding:18px 0;border-top:1px solid var(--line)}
+  .sec:first-of-type{border-top:0;padding-top:4px}
+  .sec h2{font-size:15px;font-weight:700;color:var(--forest);margin-bottom:2px}
+  .sec .hint{font-size:12.5px;color:#5b6b62;margin-bottom:14px}
+  .field{margin-bottom:14px}
+  label{display:block;font:600 13px 'Inter';color:var(--ink);margin-bottom:6px}
+  label .req{color:var(--amber)}
+  input[type=text],input[type=email],input[type=tel],input[type=date],select{
+    width:100%;font:400 15px 'Inter';color:var(--ink);background:var(--paper);
+    border:1px solid var(--line);border-radius:10px;padding:11px 12px;outline:none}
+  input:focus,select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(27,127,75,.12)}
+  .row{display:flex;gap:12px}.row>*{flex:1}
+  .help{font-size:11.5px;color:#7a8a80;margin-top:4px}
+  .seg{display:flex;gap:8px;flex-wrap:wrap}
+  .seg label{flex:1;min-width:130px;margin:0;border:1px solid var(--line);border-radius:10px;padding:11px 12px;cursor:pointer;background:var(--paper);font-weight:500;font-size:14px;display:flex;align-items:center;gap:8px}
+  .seg input{accent-color:var(--green)}
+  .seg label.sel{border-color:var(--green);background:rgba(27,127,75,.06)}
+  .file{border:1.5px dashed var(--line);border-radius:12px;padding:14px;background:var(--paper);display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .file .lab{font-size:13px;font-weight:500}
+  .file .sub{font-size:11.5px;color:#7a8a80}
+  .btn-file{border:1px solid var(--green);color:var(--green);background:#fff;font:600 13px 'Inter';padding:8px 14px;border-radius:9px;cursor:pointer;white-space:nowrap}
+  .btn-file input{display:none}
+  .fstat{font-size:12px;font-weight:600;margin-top:8px}
+  .fstat.ok{color:var(--green)}.fstat.err{color:#b5563f}.fstat.up{color:#8a7a2c}
+  .check{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px}
+  .check input{margin-top:3px;accent-color:var(--green);width:16px;height:16px}
+  .check label{font-weight:400;font-size:13px;color:#3a463f;margin:0}
+  .submit{width:100%;background:var(--green);color:#fff;border:0;border-radius:12px;font:700 16px 'Sora';padding:15px;cursor:pointer;margin-top:8px}
+  .submit:disabled{opacity:.5;cursor:not-allowed}
+  .formmsg{margin-top:12px;font-size:13px;padding:11px 13px;border-radius:10px;display:none}
+  .formmsg.err{display:block;background:#fdecea;color:#a23c28;border:1px solid #f2c9c0}
+  .hidden{display:none}
+  footer{color:#7a8a80;font-size:12px;text-align:center;padding:26px 20px}
+  .done{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:40px 26px;margin-top:-24px;text-align:center}
+  .done .tick{width:60px;height:60px;border-radius:50%;background:rgba(27,127,75,.12);color:var(--green);display:flex;align-items:center;justify-content:center;font-size:30px;margin:0 auto 16px}
+  .done h2{font-size:22px;color:var(--forest);margin-bottom:10px}
+  .done p{color:#4a564e;font-size:15px;max-width:440px;margin:0 auto}
+</style>
+</head>
+<body>
+<header>
+  <div class="top">
+    <a class="brand" href="/">Fin<span>-Delivery</span></a>
+    <div class="lang">
+      <button data-lang="fi" class="on" onclick="setLang('fi')">FI</button>
+      <button data-lang="en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+  <div class="hero">
+    <div class="wrap">
+      <span class="chip" data-i="chip">Helsinki · avataan pian</span>
+      <h1 data-i="title">Ryhdy lähetiksi</h1>
+      <p data-i="sub">Täytä hakemus ja lataa asiakirjat. Käsittelemme jokaisen hakemuksen henkilökohtaisesti ja lähetämme sinulle sähköpostin, kun sinut on hyväksytty.</p>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <form id="form" class="card" novalidate>
+
+    <!-- 1 -->
+    <div class="sec">
+      <h2 data-i="s1">1 · Tietosi</h2>
+      <div class="hint" data-i="s1h">Henkilö, jonka kanssa sopimus tehdään.</div>
+      <div class="field"><label data-i="full_name">Koko nimi <span class="req">*</span></label><input type="text" name="full_name" maxlength="200" required></div>
+      <div class="row">
+        <div class="field"><label data-i="dob">Syntymäaika <span class="req">*</span></label><input type="date" name="date_of_birth" required><div class="help" data-i="dobh">Sinun on oltava vähintään 18-vuotias.</div></div>
+        <div class="field"><label data-i="personal_id">Henkilötunnus</label><input type="text" name="personal_id" maxlength="40"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label data-i="email">Sähköposti <span class="req">*</span></label><input type="email" name="email" maxlength="200" required></div>
+        <div class="field"><label data-i="phone">Puhelin <span class="req">*</span></label><input type="tel" name="phone" maxlength="40" required></div>
+      </div>
+      <div class="field">
+        <label data-i="id_doc">Henkilökortti tai passi</label>
+        <div class="file"><div><div class="lab" data-i="id_doc_l">Lataa henkilökortti / passi</div><div class="sub" data-i="fhint">PDF, JPG tai PNG · enintään 10 MB</div></div>
+          <label class="btn-file"><span data-i="choose">Valitse tiedosto</span><input type="file" accept=".pdf,.jpg,.jpeg,.png" data-upload="id_document"></label></div>
+        <div class="fstat" data-stat="id_document"></div>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="sec">
+      <h2 data-i="s2">2 · Työnteko-oikeus</h2>
+      <div class="hint" data-i="s2h">Vaaditaan Suomessa työskentelyyn.</div>
+      <div class="field"><label data-i="citizen">Kansalaisuus / status <span class="req">*</span></label>
+        <select name="citizenship_status" id="citizen" required>
+          <option value="" data-i="opt_choose">— valitse —</option>
+          <option value="finnish" data-i="opt_fi">Suomen kansalainen</option>
+          <option value="eu" data-i="opt_eu">EU-/ETA-kansalainen</option>
+          <option value="non_eu" data-i="opt_non">EU:n ulkopuolelta</option>
+        </select>
+      </div>
+      <div class="field hidden" id="permitWrap">
+        <label data-i="permit">Oleskelulupa (työnteko-oikeudella) <span class="req">*</span></label>
+        <div class="file"><div><div class="lab" data-i="permit_l">Lataa työlupa</div><div class="sub" data-i="fhint">PDF, JPG tai PNG · enintään 10 MB</div></div>
+          <label class="btn-file"><span data-i="choose">Valitse tiedosto</span><input type="file" accept=".pdf,.jpg,.jpeg,.png" data-upload="work_permit"></label></div>
+        <div class="fstat" data-stat="work_permit"></div>
+      </div>
+      <div class="check"><input type="checkbox" id="wauth" name="work_authorized"><label for="wauth" data-i="wauth">Vahvistan, että minulla on oikeus työskennellä Suomessa.</label></div>
+    </div>
+
+    <!-- 3 -->
+    <div class="sec">
+      <h2 data-i="s3">3 · Miten toimit</h2>
+      <div class="hint" data-i="s3h">Yrittäjä tai yksityishenkilö — sinä valitset.</div>
+      <div class="seg" id="modelSeg">
+        <label><input type="radio" name="model" value="entrepreneur" required><span data-i="m_ent">Yrittäjä (Y-tunnus)</span></label>
+        <label><input type="radio" name="model" value="individual"><span data-i="m_ind">Yksityishenkilö</span></label>
+      </div>
+      <div id="entWrap" class="hidden" style="margin-top:14px">
+        <div class="field"><label data-i="ytunnus">Y-tunnus <span class="req">*</span></label><input type="text" name="y_tunnus" placeholder="1234567-8"><div class="help" data-i="ytunh">Muodossa 1234567-8.</div></div>
+        <div class="check"><input type="checkbox" id="prepay" name="prepayment_register"><label for="prepay" data-i="prepay">Olen ennakkoperintärekisterissä.</label></div>
+      </div>
+      <div id="indWrap" class="hidden" style="margin-top:14px">
+        <div class="field"><label data-i="taxcard">Verokortti</label>
+          <div class="file"><div><div class="lab" data-i="taxcard_l">Lataa verokortti</div><div class="sub" data-i="fhint">PDF, JPG tai PNG · enintään 10 MB</div></div>
+            <label class="btn-file"><span data-i="choose">Valitse tiedosto</span><input type="file" accept=".pdf,.jpg,.jpeg,.png" data-upload="tax_card"></label></div>
+          <div class="fstat" data-stat="tax_card"></div>
+          <div class="help" data-i="taxcardh">Ilman sitä alusta pidättää ~60 % ennakonpidätyksenä.</div></div>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="sec">
+      <h2 data-i="s4">4 · Kulkuväline</h2>
+      <div class="field"><label data-i="vehicle">Miten liikut? <span class="req">*</span></label>
+        <select name="vehicle_type" id="vehicle" required>
+          <option value="" data-i="opt_choose">— valitse —</option>
+          <option value="bike" data-i="v_bike">Polkupyörä</option>
+          <option value="cargo_bike" data-i="v_cargo">Tavarapyörä</option>
+          <option value="scooter" data-i="v_scoot">Skootteri / mopo</option>
+          <option value="car" data-i="v_car">Auto</option>
+          <option value="walk" data-i="v_walk">Jalan</option>
+        </select>
+      </div>
+      <div id="motorWrap" class="hidden">
+        <div class="field"><label data-i="licence">Ajokortti <span class="req">*</span></label>
+          <div class="file"><div><div class="lab" data-i="licence_l">Lataa ajokortti</div><div class="sub" data-i="fhint">PDF, JPG tai PNG · enintään 10 MB</div></div>
+            <label class="btn-file"><span data-i="choose">Valitse tiedosto</span><input type="file" accept=".pdf,.jpg,.jpeg,.png" data-upload="drivers_license"></label></div>
+          <div class="fstat" data-stat="drivers_license"></div></div>
+        <div class="field"><label data-i="insurance">Vakuutus <span class="req">*</span></label>
+          <div class="file"><div><div class="lab" data-i="insurance_l">Lataa vakuutus</div><div class="sub" data-i="fhint">PDF, JPG tai PNG · enintään 10 MB</div></div>
+            <label class="btn-file"><span data-i="choose">Valitse tiedosto</span><input type="file" accept=".pdf,.jpg,.jpeg,.png" data-upload="insurance"></label></div>
+          <div class="fstat" data-stat="insurance"></div></div>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="sec">
+      <h2 data-i="s5">5 · Maksut &amp; alue</h2>
+      <div class="row">
+        <div class="field"><label data-i="iban">Pankkitili (IBAN)</label><input type="text" name="iban" maxlength="40" placeholder="FI.."></div>
+        <div class="field"><label data-i="city">Kaupunki / alue</label><input type="text" name="city" maxlength="100" placeholder="Helsinki"></div>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="sec">
+      <h2 data-i="s6">6 · Suostumus</h2>
+      <div class="check"><input type="checkbox" id="tc" name="tc_accepted"><label for="tc" data-i="tc">Hyväksyn <a href="/terms" target="_blank">käyttöehdot</a>. <span class="req">*</span></label></div>
+      <div class="check"><input type="checkbox" id="priv" name="privacy_accepted"><label for="priv" data-i="priv">Hyväksyn <a href="/privacy" target="_blank">tietosuojaselosteen</a>. <span class="req">*</span></label></div>
+    </div>
+
+    <button type="submit" class="submit" id="submitBtn" data-i="submit">Lähetä hakemus</button>
+    <div class="formmsg" id="formmsg"></div>
+  </form>
+
+  <div id="doneScreen" class="done hidden">
+    <div class="tick">✓</div>
+    <h2 data-i="done_t">Kiitos! Hakemus vastaanotettu.</h2>
+    <p data-i="done_p">Käsittelemme hakemuksesi ja asiakirjasi. Kun sinut on hyväksytty, lähetämme sinulle sähköpostitse kirjautumistiedot ja seuraavat vaiheet.</p>
+  </div>
+</main>
+
+<footer>© Fin-Delivery OY · Helsinki</footer>
+
+<script>
+  const API = 'https://api.fin-delivery.com';
+  const TC_VERSION = '2026-07';
+  const keys = {};
+
+  const T = {
+    fi:{chip:'Helsinki · avataan pian',title:'Ryhdy lähetiksi',sub:'Täytä hakemus ja lataa asiakirjat. Käsittelemme jokaisen hakemuksen henkilökohtaisesti ja lähetämme sinulle sähköpostin, kun sinut on hyväksytty.',
+      s1:'1 · Tietosi',s1h:'Henkilö, jonka kanssa sopimus tehdään.',full_name:'Koko nimi',dob:'Syntymäaika',dobh:'Sinun on oltava vähintään 18-vuotias.',personal_id:'Henkilötunnus',email:'Sähköposti',phone:'Puhelin',id_doc:'Henkilökortti tai passi',id_doc_l:'Lataa henkilökortti / passi',
+      s2:'2 · Työnteko-oikeus',s2h:'Vaaditaan Suomessa työskentelyyn.',citizen:'Kansalaisuus / status',opt_choose:'— valitse —',opt_fi:'Suomen kansalainen',opt_eu:'EU-/ETA-kansalainen',opt_non:'EU:n ulkopuolelta',permit:'Oleskelulupa (työnteko-oikeudella)',permit_l:'Lataa työlupa',wauth:'Vahvistan, että minulla on oikeus työskennellä Suomessa.',
+      s3:'3 · Miten toimit',s3h:'Yrittäjä tai yksityishenkilö — sinä valitset.',m_ent:'Yrittäjä (Y-tunnus)',m_ind:'Yksityishenkilö',ytunnus:'Y-tunnus',ytunh:'Muodossa 1234567-8.',prepay:'Olen ennakkoperintärekisterissä.',taxcard:'Verokortti',taxcard_l:'Lataa verokortti',taxcardh:'Ilman sitä alusta pidättää ~60 % ennakonpidätyksenä.',
+      s4:'4 · Kulkuväline',vehicle:'Miten liikut?',v_bike:'Polkupyörä',v_cargo:'Tavarapyörä',v_scoot:'Skootteri / mopo',v_car:'Auto',v_walk:'Jalan',licence:'Ajokortti',licence_l:'Lataa ajokortti',insurance:'Vakuutus',insurance_l:'Lataa vakuutus',
+      s5:'5 · Maksut & alue',iban:'Pankkitili (IBAN)',city:'Kaupunki / alue',
+      s6:'6 · Suostumus',tc:'Hyväksyn käyttöehdot.',priv:'Hyväksyn tietosuojaselosteen.',
+      submit:'Lähetä hakemus',choose:'Valitse tiedosto',fhint:'PDF, JPG tai PNG · enintään 10 MB',
+      done_t:'Kiitos! Hakemus vastaanotettu.',done_p:'Käsittelemme hakemuksesi ja asiakirjasi. Kun sinut on hyväksytty, lähetämme sinulle sähköpostitse kirjautumistiedot ja seuraavat vaiheet.',
+      up:'Ladataan…',ok:'Ladattu ✓',ferr:'Lataus epäonnistui',big:'Tiedosto liian suuri (enintään 10 MB)',
+      m_valid:'Täytä kaikki pakolliset kentät oikein.',m_dup:'Tällä sähköpostilla on jo tehty hakemus.',m_rate:'Liian monta yritystä. Yritä hetken kuluttua.',m_err:'Jokin meni pieleen. Yritä uudelleen.'},
+    en:{chip:'Helsinki · opening soon',title:'Become a courier',sub:'Fill in the form and upload your documents. We review every application personally and email you once you are approved.',
+      s1:'1 · Your details',s1h:'The person the contract is made with.',full_name:'Full name',dob:'Date of birth',dobh:'You must be at least 18.',personal_id:'Personal identity code',email:'Email',phone:'Phone',id_doc:'ID card or passport',id_doc_l:'Upload ID / passport',
+      s2:'2 · Right to work',s2h:'Required to work in Finland.',citizen:'Citizenship / status',opt_choose:'— choose —',opt_fi:'Finnish citizen',opt_eu:'EU / EEA citizen',opt_non:'Outside the EU',permit:'Residence permit (with right to work)',permit_l:'Upload work permit',wauth:'I confirm I have the right to work in Finland.',
+      s3:'3 · How you operate',s3h:'Entrepreneur or private person — your choice.',m_ent:'Entrepreneur (Y-tunnus)',m_ind:'Private person',ytunnus:'Business ID (Y-tunnus)',ytunh:'Format 1234567-8.',prepay:'I am in the prepayment register (ennakkoperintärekisteri).',taxcard:'Tax card (verokortti)',taxcard_l:'Upload tax card',taxcardh:'Without it, the platform withholds ~60% as advance tax.',
+      s4:'4 · Vehicle',vehicle:'How do you get around?',v_bike:'Bicycle',v_cargo:'Cargo bike',v_scoot:'Scooter / moped',v_car:'Car',v_walk:'On foot',licence:'Driving licence',licence_l:'Upload driving licence',insurance:'Insurance',insurance_l:'Upload insurance',
+      s5:'5 · Payouts & area',iban:'Bank account (IBAN)',city:'City / area',
+      s6:'6 · Consent',tc:'I agree to the terms of service.',priv:'I agree to the privacy policy.',
+      submit:'Submit application',choose:'Choose file',fhint:'PDF, JPG or PNG · up to 10 MB',
+      done_t:'Thank you! Application received.',done_p:'We will review your application and documents. Once approved, we will email you your login details and next steps.',
+      up:'Uploading…',ok:'Uploaded ✓',ferr:'Upload failed',big:'File too large (max 10 MB)',
+      m_valid:'Please fill in all required fields correctly.',m_dup:'An application with this email already exists.',m_rate:'Too many attempts. Please try again shortly.',m_err:'Something went wrong. Please try again.'}
+  };
+  let lang='fi';
+  function setLang(l){
+    lang=l;document.documentElement.lang=l;
+    document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.lang===l));
+    document.querySelectorAll('[data-i]').forEach(el=>{const k=el.dataset.i;if(T[l][k]!=null)el.textContent=T[l][k];});
+  }
+
+  const $=s=>document.querySelector(s);
+  $('#citizen').addEventListener('change',e=>{$('#permitWrap').classList.toggle('hidden',e.target.value!=='non_eu');});
+  document.querySelectorAll('#modelSeg input').forEach(r=>r.addEventListener('change',()=>{
+    document.querySelectorAll('#modelSeg label').forEach(l=>l.classList.toggle('sel',l.querySelector('input').checked));
+    const v=(document.querySelector('#modelSeg input:checked')||{}).value;
+    $('#entWrap').classList.toggle('hidden',v!=='entrepreneur');
+    $('#indWrap').classList.toggle('hidden',v!=='individual');
+  }));
+  $('#vehicle').addEventListener('change',e=>{$('#motorWrap').classList.toggle('hidden',!(e.target.value==='car'||e.target.value==='scooter'));});
+
+  document.querySelectorAll('input[data-upload]').forEach(inp=>{
+    inp.addEventListener('change',async()=>{
+      const type=inp.dataset.upload;const file=inp.files[0];if(!file)return;
+      const stat=document.querySelector('[data-stat="'+type+'"]');
+      if(file.size>10*1024*1024){stat.className='fstat err';stat.textContent=T[lang].big;inp.value='';return;}
+      stat.className='fstat up';stat.textContent=T[lang].up;
+      try{
+        const fd=new FormData();fd.append('file',file);
+        const r=await fetch(API+'/api/v1/register/upload?type='+encodeURIComponent(type),{method:'POST',body:fd});
+        if(!r.ok)throw new Error('up');
+        const d=await r.json();keys[type]=d.key;
+        stat.className='fstat ok';stat.textContent=T[lang].ok+' · '+file.name;
+      }catch(err){stat.className='fstat err';stat.textContent=T[lang].ferr;delete keys[type];}
+    });
+  });
+
+  $('#form').addEventListener('submit',async e=>{
+    e.preventDefault();
+    const f=e.target,msg=$('#formmsg');msg.className='formmsg';
+    const g=n=>f.elements[n];
+    const p={
+      full_name:g('full_name').value.trim(),
+      date_of_birth:g('date_of_birth').value,
+      email:g('email').value.trim(),
+      phone:g('phone').value.trim(),
+      citizenship_status:g('citizenship_status').value,
+      work_authorized:g('work_authorized').checked,
+      model:(f.querySelector('input[name=model]:checked')||{}).value,
+      vehicle_type:g('vehicle_type').value,
+      prepayment_register:g('prepayment_register').checked,
+      tc_accepted:g('tc_accepted').checked,
+      tc_version:TC_VERSION,
+      privacy_accepted:g('privacy_accepted').checked
+    };
+    const opt=(k,v)=>{if(v!=null&&v!=='')p[k]=v;};
+    opt('personal_id',g('personal_id').value.trim());
+    opt('y_tunnus',g('y_tunnus').value.trim());
+    opt('iban',g('iban').value.trim());
+    opt('city',g('city').value.trim());
+    opt('id_document_key',keys.id_document);
+    opt('work_permit_key',keys.work_permit);
+    opt('tax_card_key',keys.tax_card);
+    opt('drivers_license_key',keys.drivers_license);
+    opt('insurance_key',keys.insurance);
+
+    const bad=[];
+    if(!p.full_name||!p.date_of_birth||!p.email||!p.phone)bad.push(1);
+    if(!p.citizenship_status||!p.model||!p.vehicle_type)bad.push(1);
+    if(!p.tc_accepted||!p.privacy_accepted||!p.work_authorized)bad.push(1);
+    if(p.citizenship_status==='non_eu'&&!p.work_permit_key)bad.push(1);
+    if(p.model==='entrepreneur'&&!/^\d{7}-\d$/.test(p.y_tunnus||''))bad.push(1);
+    if(p.date_of_birth){const a=(Date.now()-new Date(p.date_of_birth))/(365.25*864e5);if(a<18)bad.push(1);}
+    if(bad.length){msg.className='formmsg err';msg.textContent=T[lang].m_valid;return;}
+
+    const btn=$('#submitBtn');btn.disabled=true;
+    try{
+      const r=await fetch(API+'/api/v1/register/courier',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(p)});
+      if(r.status===201){$('#form').classList.add('hidden');$('#doneScreen').classList.remove('hidden');window.scrollTo(0,0);return;}
+      const d=await r.json().catch(()=>({}));const code=(d.error||{}).code;
+      msg.className='formmsg err';
+      msg.textContent = code==='conflict'?T[lang].m_dup : code==='rate_limited'?T[lang].m_rate : (code==='validation_failed'||code==='invalid_upload')?T[lang].m_valid : T[lang].m_err;
+    }catch(err){msg.className='formmsg err';msg.textContent=T[lang].m_err;}
+    btn.disabled=false;
+  });
+
+  setLang('fi');
+</script>
+</body>
+</html>

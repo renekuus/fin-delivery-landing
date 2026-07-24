@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Ryhdy lähetiksi · Fin-Delivery</title>
+<meta name="theme-color" content="#0F3D2E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--forest:#0F3D2E;--green:#1B7F4B;--green-lt:#6BBF8A;--mint:#F5F9F6;--amber:#E8A33D;--ink:#0A1F17;--paper:#FBFDFC;--line:rgba(15,61,46,.12);--shadow:0 6px 24px rgba(15,61,46,.08);}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--mint);line-height:1.6}
+  h1,h2,h3,.brand{font-family:'Sora',sans-serif}
+  a{color:var(--green)}
+  .wrap{max-width:760px;margin:0 auto;padding:0 20px}
+  header{background:var(--forest);color:#fff}
+  .top{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;max-width:760px;margin:0 auto}
+  .brand{font-weight:800;font-size:18px;color:#fff;text-decoration:none}.brand span{color:var(--green-lt)}
+  .lang{display:flex;gap:2px;background:rgba(255,255,255,.12);border-radius:999px;padding:3px}
+  .lang button{border:0;background:transparent;color:#cfe6d8;font:600 12px 'Inter';padding:5px 12px;border-radius:999px;cursor:pointer}
+  .lang button.on{background:#fff;color:var(--forest)}
+  .hero{background:var(--forest);color:#fff;padding:14px 0 56px;text-align:center}
+  .hero .chip{display:inline-block;background:rgba(107,191,138,.2);color:var(--green-lt);font:600 12px 'Inter';padding:5px 12px;border-radius:999px;margin-bottom:18px}
+  .hero h1{font-size:36px;font-weight:800;line-height:1.12;margin-bottom:14px;max-width:640px;margin-left:auto;margin-right:auto}
+  .hero p{color:#cfe6d8;font-size:16px;max-width:600px;margin:0 auto}
+  .cta{display:inline-block;background:var(--amber);color:#20160a;font:700 16px 'Sora';padding:15px 30px;border-radius:12px;text-decoration:none;margin-top:26px;box-shadow:0 6px 18px rgba(232,163,61,.35)}
+  .cta.green{background:var(--green);color:#fff;box-shadow:0 6px 18px rgba(27,127,75,.3)}
+  main{padding:0 0 20px}
+  .card-main{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:8px 28px 30px;margin-top:-30px}
+  section{padding:26px 0;border-top:1px solid var(--line)}
+  section:first-child{border-top:0}
+  h2.sec{font-size:22px;color:var(--forest);margin-bottom:16px;text-align:center}
+  .cards{display:flex;gap:14px;flex-wrap:wrap}
+  .c{flex:1;min-width:200px;border:1px solid var(--line);border-radius:14px;padding:18px;background:var(--paper)}
+  .c .ic{width:38px;height:38px;border-radius:10px;background:rgba(27,127,75,.1);color:var(--green);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:10px}
+  .c h3{font-size:15px;color:var(--forest);margin-bottom:5px}
+  .c p{font-size:13.5px;color:#4a564e}
+  .steps{counter-reset:s}
+  .step{display:flex;gap:16px;padding:12px 0}
+  .step .n{counter-increment:s;flex:0 0 34px;height:34px;border-radius:50%;background:var(--green);color:#fff;font:700 15px 'Sora';display:flex;align-items:center;justify-content:center}
+  .step .n::before{content:counter(s)}
+  .step h3{font-size:15.5px;color:var(--forest);margin-bottom:3px}
+  .step p{font-size:14px;color:#45514a}
+  .highlight{background:var(--mint);border:1px solid var(--line);border-left:4px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px;margin-top:6px;font-size:14px;color:#3a463f}
+  .need{list-style:none}
+  .need li{position:relative;padding:7px 0 7px 26px;font-size:14.5px;color:#3a463f;border-bottom:1px solid var(--line)}
+  .need li:last-child{border-bottom:0}
+  .need li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700}
+  .ctaband{text-align:center;padding:30px 0 8px}
+  footer{color:#7a8a80;font-size:12px;text-align:center;padding:26px 20px}
+</style>
+</head>
+<body>
+<header>
+  <div class="top">
+    <a class="brand" href="/">Fin<span>-Delivery</span></a>
+    <div class="lang">
+      <button data-lang="fi" class="on" onclick="setLang('fi')">FI</button>
+      <button data-lang="en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+  <div class="hero">
+    <div class="wrap">
+      <span class="chip" data-i="chip">Helsinki · avataan pian</span>
+      <h1 data-i="h1">Ryhdy lähetiksi ja ansaitse enemmän</h1>
+      <p data-i="hsub">Meidän kautta saat mitä todennäköisimmin suuremman tunti- ja kokonaispalkkion. Toimit omana yrittäjänä, valitset omat vuorosi etkä ole sidottu yhteen sovellukseen.</p>
+      <a class="cta" href="hakemus/" data-i="cta">Ryhdy lähetiksi →</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="card-main">
+
+    <section>
+      <h2 class="sec" data-i="why_h">Miksi meidän kautta</h2>
+      <div class="cards">
+        <div class="c"><div class="ic">€</div><h3 data-i="w1t">Parempi palkka</h3><p data-i="w1p">Rakenteemme — perusmaksu + etäisyys + niputus — tähtää selvästi korkeampaan todelliseen tuntipalkkaan kuin kilpailijoilla.</p></div>
+        <div class="c"><div class="ic">◔</div><h3 data-i="w2t">Sinä päätät</h3><p data-i="w2p">Valitset omat vuorosi. Reitti on suositus, ei pakko — ja voit toimia myös muissa sovelluksissa.</p></div>
+        <div class="c"><div class="ic">◆</div><h3 data-i="w3t">Oma yrittäjyys</h3><p data-i="w3p">Toimit aitona yrittäjänä (kevytyrittäjä tai Y-tunnus). Läpinäkyvä sopimus, ei piilokuluja.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="sec" data-i="how_h">Näin se toimii</h2>
+      <div class="steps">
+        <div class="step"><div class="n"></div><div><h3 data-i="st1t">Täytä hakemus</h3><p data-i="st1p">Täytä lyhyt hakemus ja lataa tarvittavat asiakirjat.</p></div></div>
+        <div class="step"><div class="n"></div><div><h3 data-i="st2t">Käsittelemme henkilökohtaisesti</h3><p data-i="st2p">Tarkistamme hakemuksesi ja asiakirjasi — oikea ihminen, ei pelkkä automaatti.</p></div></div>
+        <div class="step"><div class="n"></div><div><h3 data-i="st3t">Saat sopimusehdotuksen</h3><p data-i="st3p">Otamme sinuun yhteyttä sähköpostitse.</p>
+          <div class="highlight" data-i="hl">Lähetämme sinulle sähköpostitse sopimusehdotuksen, josta ilmenevät selkeästi komissiomäärät, käytännön ohjeet sekä yhteistyön rakenne ja säännöt, jotta voit ymmärtää ja maksimoida voittosi.</div></div></div>
+        <div class="step"><div class="n"></div><div><h3 data-i="st4t">Aloitat ajamisen</h3><p data-i="st4p">Hyväksynnän jälkeen saat kirjautumistiedot sähköpostitse ja pääset heti aloittamaan.</p></div></div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="sec" data-i="need_h">Mitä tarvitset</h2>
+      <ul class="need">
+        <li data-i="n1">Henkilöllisyystodistus (ID-kortti tai passi)</li>
+        <li data-i="n2">Oikeus työskennellä Suomessa</li>
+        <li data-i="n3">Kevytyrittäjän Y-tunnus tai verokortti</li>
+        <li data-i="n4">Kulkuväline (pyörä, skootteri tai auto — moottoriajoneuvolla ajokortti + vakuutus)</li>
+        <li data-i="n5">Pankkitili maksuja varten</li>
+      </ul>
+    </section>
+
+    <div class="ctaband">
+      <a class="cta green" href="hakemus/" data-i="cta2">Ryhdy lähetiksi →</a>
+    </div>
+
+  </div>
+</main>
+
+<footer>© Fin-Delivery OY · Helsinki</footer>
+
+<script>
+  const T={
+    fi:{chip:'Helsinki · avataan pian',h1:'Ryhdy lähetiksi ja ansaitse enemmän',hsub:'Meidän kautta saat mitä todennäköisimmin suuremman tunti- ja kokonaispalkkion. Toimit omana yrittäjänä, valitset omat vuorosi etkä ole sidottu yhteen sovellukseen.',cta:'Ryhdy lähetiksi →',cta2:'Ryhdy lähetiksi →',
+      why_h:'Miksi meidän kautta',w1t:'Parempi palkka',w1p:'Rakenteemme — perusmaksu + etäisyys + niputus — tähtää selvästi korkeampaan todelliseen tuntipalkkaan kuin kilpailijoilla.',w2t:'Sinä päätät',w2p:'Valitset omat vuorosi. Reitti on suositus, ei pakko — ja voit toimia myös muissa sovelluksissa.',w3t:'Oma yrittäjyys',w3p:'Toimit aitona yrittäjänä (kevytyrittäjä tai Y-tunnus). Läpinäkyvä sopimus, ei piilokuluja.',
+      how_h:'Näin se toimii',st1t:'Täytä hakemus',st1p:'Täytä lyhyt hakemus ja lataa tarvittavat asiakirjat.',st2t:'Käsittelemme henkilökohtaisesti',st2p:'Tarkistamme hakemuksesi ja asiakirjasi — oikea ihminen, ei pelkkä automaatti.',st3t:'Saat sopimusehdotuksen',st3p:'Otamme sinuun yhteyttä sähköpostitse.',hl:'Lähetämme sinulle sähköpostitse sopimusehdotuksen, josta ilmenevät selkeästi komissiomäärät, käytännön ohjeet sekä yhteistyön rakenne ja säännöt, jotta voit ymmärtää ja maksimoida voittosi.',st4t:'Aloitat ajamisen',st4p:'Hyväksynnän jälkeen saat kirjautumistiedot sähköpostitse ja pääset heti aloittamaan.',
+      need_h:'Mitä tarvitset',n1:'Henkilöllisyystodistus (ID-kortti tai passi)',n2:'Oikeus työskennellä Suomessa',n3:'Kevytyrittäjän Y-tunnus tai verokortti',n4:'Kulkuväline (pyörä, skootteri tai auto — moottoriajoneuvolla ajokortti + vakuutus)',n5:'Pankkitili maksuja varten'},
+    en:{chip:'Helsinki · opening soon',h1:'Become a courier and earn more',hsub:'Through us you will most likely get a higher hourly and total pay. You operate as your own entrepreneur, choose your own shifts and are not tied to a single app.',cta:'Become a courier →',cta2:'Become a courier →',
+      why_h:'Why with us',w1t:'Better pay',w1p:'Our structure — base fee + distance + batching — aims for a clearly higher real hourly pay than competitors.',w2t:'You decide',w2p:'You choose your own shifts. The route is a suggestion, not an order — and you can work in other apps too.',w3t:'Your own business',w3p:'You operate as a genuine entrepreneur (light entrepreneur or Y-tunnus). A transparent contract, no hidden fees.',
+      how_h:'How it works',st1t:'Fill in the application',st1p:'Complete a short application and upload the required documents.',st2t:'We review it personally',st2p:'We check your application and documents — a real person, not just an automated system.',st3t:'You get a contract proposal',st3p:'We contact you by email.',hl:'We will email you a contract proposal that clearly sets out the commission rates, practical instructions, and the structure and rules of the cooperation, so you can understand and maximise your earnings.',st4t:'You start driving',st4p:'After approval you receive your login details by email and can start right away.',
+      need_h:'What you need',n1:'Proof of identity (ID card or passport)',n2:'The right to work in Finland',n3:'Light-entrepreneur Y-tunnus or a tax card',n4:'A vehicle (bike, scooter or car — for a motor vehicle, driving licence + insurance)',n5:'A bank account for payouts'}
+  };
+  let lang='fi';
+  function setLang(l){lang=l;document.documentElement.lang=l;
+    document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.lang===l));
+    document.querySelectorAll('[data-i]').forEach(el=>{const k=el.dataset.i;if(T[l][k]!=null)el.textContent=T[l][k];});}
+  setLang('fi');
+</script>
+</body>
+</html>

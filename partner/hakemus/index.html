@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Ryhdy kumppaniksi · Fin-Delivery</title>
+<meta name="theme-color" content="#0F3D2E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--forest:#0F3D2E;--green:#1B7F4B;--green-lt:#6BBF8A;--mint:#F5F9F6;--amber:#E8A33D;--ink:#0A1F17;--paper:#FBFDFC;--line:rgba(15,61,46,.12);--shadow:0 6px 24px rgba(15,61,46,.08);}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--mint);line-height:1.55}
+  h1,h2,h3,.brand{font-family:'Sora',sans-serif}
+  a{color:var(--green)}
+  .wrap{max-width:720px;margin:0 auto;padding:0 20px}
+  header{background:var(--forest);color:#fff}
+  .top{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;max-width:720px;margin:0 auto}
+  .brand{font-weight:800;font-size:18px;color:#fff;text-decoration:none}.brand span{color:var(--green-lt)}
+  .lang{display:flex;gap:2px;background:rgba(255,255,255,.12);border-radius:999px;padding:3px}
+  .lang button{border:0;background:transparent;color:#cfe6d8;font:600 12px 'Inter';padding:5px 12px;border-radius:999px;cursor:pointer}
+  .lang button.on{background:#fff;color:var(--forest)}
+  .hero{background:var(--forest);color:#fff;padding:8px 0 40px}
+  .hero h1{font-size:32px;font-weight:800;line-height:1.15;margin-bottom:10px}
+  .hero p{color:#cfe6d8;font-size:15px;max-width:560px}
+  .hero .chip{display:inline-block;background:rgba(107,191,138,.2);color:var(--green-lt);font:600 12px 'Inter';padding:5px 12px;border-radius:999px;margin-bottom:16px}
+  main{padding:0 0 60px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:26px 24px;margin-top:-24px}
+  .sec{padding:18px 0;border-top:1px solid var(--line)}.sec:first-of-type{border-top:0;padding-top:4px}
+  .sec h2{font-size:15px;font-weight:700;color:var(--forest);margin-bottom:2px}
+  .sec .hint{font-size:12.5px;color:#5b6b62;margin-bottom:14px}
+  .field{margin-bottom:14px}
+  label{display:block;font:600 13px 'Inter';color:var(--ink);margin-bottom:6px}
+  label .req{color:var(--amber)}
+  input[type=text],input[type=email],input[type=tel],select,textarea{width:100%;font:400 15px 'Inter';color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:11px 12px;outline:none}
+  textarea{resize:vertical;min-height:64px}
+  input:focus,select:focus,textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(27,127,75,.12)}
+  .row{display:flex;gap:12px}.row>*{flex:1}
+  .help{font-size:11.5px;color:#7a8a80;margin-top:4px}
+  .file{border:1.5px dashed var(--line);border-radius:12px;padding:14px;background:var(--paper);display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .file .lab{font-size:13px;font-weight:500}.file .sub{font-size:11.5px;color:#7a8a80}
+  .btn-file{border:1px solid var(--green);color:var(--green);background:#fff;font:600 13px 'Inter';padding:8px 14px;border-radius:9px;cursor:pointer;white-space:nowrap}
+  .btn-file input{display:none}
+  .fstat{font-size:12px;font-weight:600;margin-top:8px}
+  .fstat.ok{color:var(--green)}.fstat.err{color:#b5563f}.fstat.up{color:#8a7a2c}
+  .check{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px}
+  .check input{margin-top:3px;accent-color:var(--green);width:16px;height:16px}
+  .check label{font-weight:400;font-size:13px;color:#3a463f;margin:0}
+  .submit{width:100%;background:var(--green);color:#fff;border:0;border-radius:12px;font:700 16px 'Sora';padding:15px;cursor:pointer;margin-top:8px}
+  .submit:disabled{opacity:.5;cursor:not-allowed}
+  .formmsg{margin-top:12px;font-size:13px;padding:11px 13px;border-radius:10px;display:none}
+  .formmsg.err{display:block;background:#fdecea;color:#a23c28;border:1px solid #f2c9c0}
+  .hidden{display:none}
+  footer{color:#7a8a80;font-size:12px;text-align:center;padding:26px 20px}
+  .done{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:40px 26px;margin-top:-24px;text-align:center}
+  .done .tick{width:60px;height:60px;border-radius:50%;background:rgba(27,127,75,.12);color:var(--green);display:flex;align-items:center;justify-content:center;font-size:30px;margin:0 auto 16px}
+  .done h2{font-size:22px;color:var(--forest);margin-bottom:10px}
+  .done p{color:#4a564e;font-size:15px;max-width:460px;margin:0 auto}
+</style>
+</head>
+<body>
+<header>
+  <div class="top">
+    <a class="brand" href="/">Fin<span>-Delivery</span></a>
+    <div class="lang">
+      <button data-lang="fi" class="on" onclick="setLang('fi')">FI</button>
+      <button data-lang="en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+  <div class="hero">
+    <div class="wrap">
+      <span class="chip" data-i="chip">Helsinki · avataan pian</span>
+      <h1 data-i="title">Ryhdy kumppaniksi</h1>
+      <p data-i="sub">Täytä hakemus ja lataa vaaditut luvat. Käsittelemme hakemuksen henkilökohtaisesti ja lähetämme sähköpostin, kun sinut on hyväksytty.</p>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <form id="form" class="card" novalidate>
+
+    <!-- 1 -->
+    <div class="sec">
+      <h2 data-i="s1">1 · Yritys</h2>
+      <div class="field"><label data-i="bname">Yrityksen nimi <span class="req">*</span></label><input type="text" name="business_name" maxlength="200" required></div>
+      <div class="row">
+        <div class="field"><label data-i="ytunnus">Y-tunnus <span class="req">*</span></label><input type="text" name="y_tunnus" placeholder="1234567-8" required><div class="help" data-i="ytunh">Muodossa 1234567-8.</div></div>
+        <div class="field"><label data-i="vat">ALV-tunnus (VAT)</label><input type="text" name="vat_id" maxlength="40"></div>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="sec">
+      <h2 data-i="s2">2 · Elintarvikeluvat</h2>
+      <div class="hint" data-i="s2h">Vaaditaan ravintoloilta, kioskeilta ja kaupoilta.</div>
+      <div class="field"><label data-i="elint">Elintarvikeilmoitus (Ilppa)</label>
+        <div class="file"><div><div class="lab" data-i="elint_l">Lataa elintarvikeilmoitus</div><div class="sub" data-i="fhint">PDF, JPG tai PNG · enintään 10 MB</div></div>
+          <label class="btn-file"><span data-i="choose">Valitse tiedosto</span><input type="file" accept=".pdf,.jpg,.jpeg,.png" data-upload="elintarvikeilmoitus"></label></div>
+        <div class="fstat" data-stat="elintarvikeilmoitus"></div></div>
+      <div class="field"><label data-i="omav">Omavalvontasuunnitelma</label>
+        <div class="file"><div><div class="lab" data-i="omav_l">Lataa omavalvonta</div><div class="sub" data-i="fhint">PDF, JPG tai PNG · enintään 10 MB</div></div>
+          <label class="btn-file"><span data-i="choose">Valitse tiedosto</span><input type="file" accept=".pdf,.jpg,.jpeg,.png" data-upload="omavalvonta"></label></div>
+        <div class="fstat" data-stat="omavalvonta"></div></div>
+      <div class="check"><input type="checkbox" id="staff" name="staff_health_confirmed"><label for="staff" data-i="staff">Vahvistan henkilöstön salmonellatodistukset (avoimen ruoan käsittelijät).</label></div>
+    </div>
+
+    <!-- 3 -->
+    <div class="sec">
+      <h2 data-i="s3">3 · Sijainti &amp; aukiolo</h2>
+      <div class="field"><label data-i="address">Osoite</label><input type="text" name="address" maxlength="300" placeholder="Katu 1, Helsinki"></div>
+      <div class="row">
+        <div class="field"><label data-i="category">Kategoria / keittiö</label><input type="text" name="category" maxlength="60" placeholder="esim. ravintola, sushi, market"></div>
+        <div class="field"><label data-i="hours">Aukioloajat</label><input type="text" name="opening_hours" maxlength="120" placeholder="Ma–Su 10–22"></div>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="sec">
+      <h2 data-i="s4">4 · Yhteystiedot &amp; maksut</h2>
+      <div class="row">
+        <div class="field"><label data-i="contact">Yhteyshenkilö <span class="req">*</span></label><input type="text" name="contact_name" maxlength="200" required></div>
+        <div class="field"><label data-i="signatory">Nimenkirjoitusoikeutettu</label><input type="text" name="signatory_name" maxlength="200"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label data-i="email">Sähköposti <span class="req">*</span></label><input type="email" name="email" maxlength="200" required></div>
+        <div class="field"><label data-i="phone">Puhelin <span class="req">*</span></label><input type="tel" name="phone" maxlength="40" required></div>
+      </div>
+      <div class="field"><label data-i="iban">Pankkitili (IBAN)</label><input type="text" name="iban" maxlength="40" placeholder="FI.."></div>
+    </div>
+
+    <!-- 5 -->
+    <div class="sec">
+      <h2 data-i="s5">5 · Valinnainen</h2>
+      <div class="field"><label data-i="alcohol">Anniskelulupa (jos myyt alkoholia)</label>
+        <div class="file"><div><div class="lab" data-i="alcohol_l">Lataa anniskelulupa</div><div class="sub" data-i="fhint">PDF, JPG tai PNG · enintään 10 MB</div></div>
+          <label class="btn-file"><span data-i="choose">Valitse tiedosto</span><input type="file" accept=".pdf,.jpg,.jpeg,.png" data-upload="alcohol_license"></label></div>
+        <div class="fstat" data-stat="alcohol_license"></div></div>
+    </div>
+
+    <!-- 6 -->
+    <div class="sec">
+      <h2 data-i="s6">6 · Suostumus</h2>
+      <div class="check"><input type="checkbox" id="tc" name="tc_accepted"><label for="tc" data-i="tc">Hyväksyn <a href="/terms" target="_blank">kumppanuusehdot</a>. <span class="req">*</span></label></div>
+    </div>
+
+    <button type="submit" class="submit" id="submitBtn" data-i="submit">Lähetä hakemus</button>
+    <div class="formmsg" id="formmsg"></div>
+  </form>
+
+  <div id="doneScreen" class="done hidden">
+    <div class="tick">✓</div>
+    <h2 data-i="done_t">Kiitos! Hakemus vastaanotettu.</h2>
+    <p data-i="done_p">Käsittelemme hakemuksesi ja lupasi. Kun sinut on hyväksytty, otamme yhteyttä ja lähetämme kirjautumistiedot sekä ohjeet sähköpostitse.</p>
+  </div>
+</main>
+
+<footer>© Fin-Delivery OY · Helsinki</footer>
+
+<script>
+  const API='https://api.fin-delivery.com';
+  const TC_VERSION='2026-07';
+  const keys={};
+  const T={
+    fi:{chip:'Helsinki · avataan pian',title:'Ryhdy kumppaniksi',sub:'Täytä hakemus ja lataa vaaditut luvat. Käsittelemme hakemuksen henkilökohtaisesti ja lähetämme sähköpostin, kun sinut on hyväksytty.',
+      s1:'1 · Yritys',bname:'Yrityksen nimi',ytunnus:'Y-tunnus',ytunh:'Muodossa 1234567-8.',vat:'ALV-tunnus (VAT)',
+      s2:'2 · Elintarvikeluvat',s2h:'Vaaditaan ravintoloilta, kioskeilta ja kaupoilta.',elint:'Elintarvikeilmoitus (Ilppa)',elint_l:'Lataa elintarvikeilmoitus',omav:'Omavalvontasuunnitelma',omav_l:'Lataa omavalvonta',staff:'Vahvistan henkilöstön salmonellatodistukset (avoimen ruoan käsittelijät).',
+      s3:'3 · Sijainti & aukiolo',address:'Osoite',category:'Kategoria / keittiö',hours:'Aukioloajat',
+      s4:'4 · Yhteystiedot & maksut',contact:'Yhteyshenkilö',signatory:'Nimenkirjoitusoikeutettu',email:'Sähköposti',phone:'Puhelin',iban:'Pankkitili (IBAN)',
+      s5:'5 · Valinnainen',alcohol:'Anniskelulupa (jos myyt alkoholia)',alcohol_l:'Lataa anniskelulupa',
+      s6:'6 · Suostumus',tc:'Hyväksyn kumppanuusehdot.',
+      submit:'Lähetä hakemus',choose:'Valitse tiedosto',fhint:'PDF, JPG tai PNG · enintään 10 MB',
+      done_t:'Kiitos! Hakemus vastaanotettu.',done_p:'Käsittelemme hakemuksesi ja lupasi. Kun sinut on hyväksytty, otamme yhteyttä ja lähetämme kirjautumistiedot sekä ohjeet sähköpostitse.',
+      up:'Ladataan…',ok:'Ladattu ✓',ferr:'Lataus epäonnistui',big:'Tiedosto liian suuri (enintään 10 MB)',
+      m_valid:'Täytä kaikki pakolliset kentät oikein.',m_dup:'Tällä Y-tunnuksella on jo tehty hakemus.',m_rate:'Liian monta yritystä. Yritä hetken kuluttua.',m_err:'Jokin meni pieleen. Yritä uudelleen.'},
+    en:{chip:'Helsinki · opening soon',title:'Become a partner',sub:'Fill in the form and upload the required permits. We review every application personally and email you once you are approved.',
+      s1:'1 · Company',bname:'Company name',ytunnus:'Business ID (Y-tunnus)',ytunh:'Format 1234567-8.',vat:'VAT ID',
+      s2:'2 · Food permits',s2h:'Required for restaurants, kiosks and shops.',elint:'Food business notification (Ilppa)',elint_l:'Upload notification',omav:'Own-control plan (omavalvonta)',omav_l:'Upload own-control plan',staff:'I confirm staff salmonella certificates (open-food handlers).',
+      s3:'3 · Location & hours',address:'Address',category:'Category / cuisine',hours:'Opening hours',
+      s4:'4 · Contact & payouts',contact:'Contact person',signatory:'Authorised signatory',email:'Email',phone:'Phone',iban:'Bank account (IBAN)',
+      s5:'5 · Optional',alcohol:'Alcohol licence (if you sell alcohol)',alcohol_l:'Upload alcohol licence',
+      s6:'6 · Consent',tc:'I agree to the partner terms.',
+      submit:'Submit application',choose:'Choose file',fhint:'PDF, JPG or PNG · up to 10 MB',
+      done_t:'Thank you! Application received.',done_p:'We will review your application and permits. Once approved, we will contact you and email your login details and instructions.',
+      up:'Uploading…',ok:'Uploaded ✓',ferr:'Upload failed',big:'File too large (max 10 MB)',
+      m_valid:'Please fill in all required fields correctly.',m_dup:'An application with this Business ID already exists.',m_rate:'Too many attempts. Please try again shortly.',m_err:'Something went wrong. Please try again.'}
+  };
+  let lang='fi';
+  function setLang(l){lang=l;document.documentElement.lang=l;
+    document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.lang===l));
+    document.querySelectorAll('[data-i]').forEach(el=>{const k=el.dataset.i;if(T[l][k]!=null)el.textContent=T[l][k];});}
+
+  const $=s=>document.querySelector(s);
+  document.querySelectorAll('input[data-upload]').forEach(inp=>{
+    inp.addEventListener('change',async()=>{
+      const type=inp.dataset.upload,file=inp.files[0];if(!file)return;
+      const stat=document.querySelector('[data-stat="'+type+'"]');
+      if(file.size>10*1024*1024){stat.className='fstat err';stat.textContent=T[lang].big;inp.value='';return;}
+      stat.className='fstat up';stat.textContent=T[lang].up;
+      try{const fd=new FormData();fd.append('file',file);
+        const r=await fetch(API+'/api/v1/register/upload?type='+encodeURIComponent(type),{method:'POST',body:fd});
+        if(!r.ok)throw new Error('up');const d=await r.json();keys[type]=d.key;
+        stat.className='fstat ok';stat.textContent=T[lang].ok+' · '+file.name;
+      }catch(err){stat.className='fstat err';stat.textContent=T[lang].ferr;delete keys[type];}
+    });
+  });
+
+  $('#form').addEventListener('submit',async e=>{
+    e.preventDefault();
+    const f=e.target,msg=$('#formmsg');msg.className='formmsg';
+    const g=n=>f.elements[n];
+    const p={
+      business_name:g('business_name').value.trim(),
+      y_tunnus:g('y_tunnus').value.trim(),
+      contact_name:g('contact_name').value.trim(),
+      email:g('email').value.trim(),
+      phone:g('phone').value.trim(),
+      staff_health_confirmed:g('staff_health_confirmed').checked,
+      tc_accepted:g('tc_accepted').checked,
+      tc_version:TC_VERSION
+    };
+    const opt=(k,v)=>{if(v!=null&&v!=='')p[k]=v;};
+    opt('vat_id',g('vat_id').value.trim());
+    opt('address',g('address').value.trim());
+    opt('category',g('category').value.trim());
+    const hrs=g('opening_hours').value.trim();if(hrs)p.opening_hours={text:hrs};
+    opt('signatory_name',g('signatory_name').value.trim());
+    opt('iban',g('iban').value.trim());
+    opt('elintarvikeilmoitus_key',keys.elintarvikeilmoitus);
+    opt('omavalvonta_key',keys.omavalvonta);
+    opt('alcohol_license_key',keys.alcohol_license);
+
+    const bad=[];
+    if(!p.business_name||!p.contact_name||!p.email||!p.phone)bad.push(1);
+    if(!/^\d{7}-\d$/.test(p.y_tunnus||''))bad.push(1);
+    if(!p.tc_accepted)bad.push(1);
+    if(bad.length){msg.className='formmsg err';msg.textContent=T[lang].m_valid;return;}
+
+    const btn=$('#submitBtn');btn.disabled=true;
+    try{
+      const r=await fetch(API+'/api/v1/register/merchant',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(p)});
+      if(r.status===201){$('#form').classList.add('hidden');$('#doneScreen').classList.remove('hidden');window.scrollTo(0,0);return;}
+      const d=await r.json().catch(()=>({}));const code=(d.error||{}).code;
+      msg.className='formmsg err';
+      msg.textContent=code==='conflict'?T[lang].m_dup:code==='rate_limited'?T[lang].m_rate:(code==='validation_failed'||code==='invalid_upload')?T[lang].m_valid:T[lang].m_err;
+    }catch(err){msg.className='formmsg err';msg.textContent=T[lang].m_err;}
+    btn.disabled=false;
+  });
+
+  setLang('fi');
+</script>
+</body>
+</html>

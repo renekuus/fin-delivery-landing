@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Ryhdy kumppaniksi · Fin-Delivery</title>
+<meta name="theme-color" content="#0F3D2E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--forest:#0F3D2E;--green:#1B7F4B;--green-lt:#6BBF8A;--mint:#F5F9F6;--amber:#E8A33D;--ink:#0A1F17;--paper:#FBFDFC;--line:rgba(15,61,46,.12);--shadow:0 6px 24px rgba(15,61,46,.08);}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--mint);line-height:1.6}
+  h1,h2,h3,.brand{font-family:'Sora',sans-serif}
+  a{color:var(--green)}
+  .wrap{max-width:760px;margin:0 auto;padding:0 20px}
+  header{background:var(--forest);color:#fff}
+  .top{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;max-width:760px;margin:0 auto}
+  .brand{font-weight:800;font-size:18px;color:#fff;text-decoration:none}.brand span{color:var(--green-lt)}
+  .lang{display:flex;gap:2px;background:rgba(255,255,255,.12);border-radius:999px;padding:3px}
+  .lang button{border:0;background:transparent;color:#cfe6d8;font:600 12px 'Inter';padding:5px 12px;border-radius:999px;cursor:pointer}
+  .lang button.on{background:#fff;color:var(--forest)}
+  .hero{background:var(--forest);color:#fff;padding:14px 0 56px;text-align:center}
+  .hero .chip{display:inline-block;background:rgba(107,191,138,.2);color:var(--green-lt);font:600 12px 'Inter';padding:5px 12px;border-radius:999px;margin-bottom:18px}
+  .hero h1{font-size:32px;font-weight:800;line-height:1.14;margin-bottom:14px;max-width:660px;margin-left:auto;margin-right:auto}
+  .hero p{color:#cfe6d8;font-size:16px;max-width:600px;margin:0 auto}
+  .cta{display:inline-block;background:var(--amber);color:#20160a;font:700 16px 'Sora';padding:15px 30px;border-radius:12px;text-decoration:none;margin-top:26px;box-shadow:0 6px 18px rgba(232,163,61,.35)}
+  .cta.green{background:var(--green);color:#fff;box-shadow:0 6px 18px rgba(27,127,75,.3)}
+  main{padding:0 0 20px}
+  .card-main{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:8px 28px 30px;margin-top:-30px}
+  section{padding:26px 0;border-top:1px solid var(--line)}
+  section:first-child{border-top:0}
+  h2.sec{font-size:22px;color:var(--forest);margin-bottom:16px;text-align:center}
+  .cards{display:flex;gap:14px;flex-wrap:wrap}
+  .c{flex:1;min-width:200px;border:1px solid var(--line);border-radius:14px;padding:18px;background:var(--paper)}
+  .c .ic{width:38px;height:38px;border-radius:10px;background:rgba(27,127,75,.1);color:var(--green);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:10px}
+  .c h3{font-size:15px;color:var(--forest);margin-bottom:5px}
+  .c p{font-size:13.5px;color:#4a564e}
+  .steps{counter-reset:s}
+  .step{display:flex;gap:16px;padding:12px 0}
+  .step .n{counter-increment:s;flex:0 0 34px;height:34px;border-radius:50%;background:var(--green);color:#fff;font:700 15px 'Sora';display:flex;align-items:center;justify-content:center}
+  .step .n::before{content:counter(s)}
+  .step h3{font-size:15.5px;color:var(--forest);margin-bottom:3px}
+  .step p{font-size:14px;color:#45514a}
+  .highlight{background:var(--mint);border:1px solid var(--line);border-left:4px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px;margin-top:6px;font-size:14px;color:#3a463f}
+  .need{list-style:none}
+  .need li{position:relative;padding:7px 0 7px 26px;font-size:14.5px;color:#3a463f;border-bottom:1px solid var(--line)}
+  .need li:last-child{border-bottom:0}
+  .need li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700}
+  .ctaband{text-align:center;padding:30px 0 8px}
+  footer{color:#7a8a80;font-size:12px;text-align:center;padding:26px 20px}
+</style>
+</head>
+<body>
+<header>
+  <div class="top">
+    <a class="brand" href="/">Fin<span>-Delivery</span></a>
+    <div class="lang">
+      <button data-lang="fi" class="on" onclick="setLang('fi')">FI</button>
+      <button data-lang="en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+  <div class="hero">
+    <div class="wrap">
+      <span class="chip" data-i="chip">Helsinki · avataan pian</span>
+      <h1 data-i="h1">Aloita ravintolasi tai kauppasi tuotteiden myynti meidän kautta</h1>
+      <p data-i="hsub">Tavoita uusia asiakkaita Helsingissä pienemmällä komissiolla. Me hoidamme teknologian ja logistiikan — sinä keskityt ruokaan ja tuotteisiin.</p>
+      <a class="cta" href="hakemus/" data-i="cta">Aloita myynti kauttamme →</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="card-main">
+
+    <section>
+      <h2 class="sec" data-i="why_h">Miksi kumppaniksi</h2>
+      <div class="cards">
+        <div class="c"><div class="ic">%</div><h3 data-i="w1t">Pienempi komissio</h3><p data-i="w1p">Kevyempi kulurakenteemme tarkoittaa pienempää komissiota kuin isoilla alustoilla — enemmän jää sinulle.</p></div>
+        <div class="c"><div class="ic">◎</div><h3 data-i="w2t">Uusia asiakkaita</h3><p data-i="w2p">Näyt asiakassovelluksessa ja tavoitat lähialueen asiakkaat, jotka etsivät juuri sinun tuotteitasi.</p></div>
+        <div class="c"><div class="ic">▤</div><h3 data-i="w3t">Helppo aloitus</h3><p data-i="w3p">Autamme käyttöönotossa. Hyväksynnän jälkeen lähetämme Android-tabletin tilausten vastaanottoon.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="sec" data-i="how_h">Näin se toimii</h2>
+      <div class="steps">
+        <div class="step"><div class="n"></div><div><h3 data-i="st1t">Täytä hakemus</h3><p data-i="st1p">Täytä yrityksesi tiedot ja lataa vaaditut elintarvikeluvat.</p></div></div>
+        <div class="step"><div class="n"></div><div><h3 data-i="st2t">Käsittelemme henkilökohtaisesti</h3><p data-i="st2p">Tarkistamme tiedot ja lupasi — oikea ihminen, ei pelkkä automaatti.</p></div></div>
+        <div class="step"><div class="n"></div><div><h3 data-i="st3t">Saat sopimusehdotuksen</h3><p data-i="st3p">Otamme sinuun yhteyttä sähköpostitse.</p>
+          <div class="highlight" data-i="hl">Lähetämme sinulle sähköpostitse sopimusehdotuksen, josta ilmenevät selkeästi komissiomäärät, käytännön ohjeet sekä yhteistyön rakenne ja säännöt, jotta voit ymmärtää ja maksimoida voittosi.</div></div></div>
+        <div class="step"><div class="n"></div><div><h3 data-i="st4t">Aloitat myynnin</h3><p data-i="st4p">Hyväksynnän jälkeen lähetämme Android-tabletin, kirjautumistiedot ja ohjeet — ja pääset vastaanottamaan tilauksia.</p></div></div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="sec" data-i="need_h">Mitä tarvitset</h2>
+      <ul class="need">
+        <li data-i="n1">Y-tunnus</li>
+        <li data-i="n2">Elintarvikeilmoitus (Ilppa)</li>
+        <li data-i="n3">Omavalvontasuunnitelma</li>
+        <li data-i="n4">Yhteyshenkilö ja pankkitili</li>
+        <li data-i="n5">Anniskelulupa (vain jos myyt alkoholia)</li>
+      </ul>
+    </section>
+
+    <div class="ctaband">
+      <a class="cta green" href="hakemus/" data-i="cta2">Aloita myynti kauttamme →</a>
+    </div>
+
+  </div>
+</main>
+
+<footer>© Fin-Delivery OY · Helsinki</footer>
+
+<script>
+  const T={
+    fi:{chip:'Helsinki · avataan pian',h1:'Aloita ravintolasi tai kauppasi tuotteiden myynti meidän kautta',hsub:'Tavoita uusia asiakkaita Helsingissä pienemmällä komissiolla. Me hoidamme teknologian ja logistiikan — sinä keskityt ruokaan ja tuotteisiin.',cta:'Aloita myynti kauttamme →',cta2:'Aloita myynti kauttamme →',
+      why_h:'Miksi kumppaniksi',w1t:'Pienempi komissio',w1p:'Kevyempi kulurakenteemme tarkoittaa pienempää komissiota kuin isoilla alustoilla — enemmän jää sinulle.',w2t:'Uusia asiakkaita',w2p:'Näyt asiakassovelluksessa ja tavoitat lähialueen asiakkaat, jotka etsivät juuri sinun tuotteitasi.',w3t:'Helppo aloitus',w3p:'Autamme käyttöönotossa. Hyväksynnän jälkeen lähetämme Android-tabletin tilausten vastaanottoon.',
+      how_h:'Näin se toimii',st1t:'Täytä hakemus',st1p:'Täytä yrityksesi tiedot ja lataa vaaditut elintarvikeluvat.',st2t:'Käsittelemme henkilökohtaisesti',st2p:'Tarkistamme tiedot ja lupasi — oikea ihminen, ei pelkkä automaatti.',st3t:'Saat sopimusehdotuksen',st3p:'Otamme sinuun yhteyttä sähköpostitse.',hl:'Lähetämme sinulle sähköpostitse sopimusehdotuksen, josta ilmenevät selkeästi komissiomäärät, käytännön ohjeet sekä yhteistyön rakenne ja säännöt, jotta voit ymmärtää ja maksimoida voittosi.',st4t:'Aloitat myynnin',st4p:'Hyväksynnän jälkeen lähetämme Android-tabletin, kirjautumistiedot ja ohjeet — ja pääset vastaanottamaan tilauksia.',
+      need_h:'Mitä tarvitset',n1:'Y-tunnus',n2:'Elintarvikeilmoitus (Ilppa)',n3:'Omavalvontasuunnitelma',n4:'Yhteyshenkilö ja pankkitili',n5:'Anniskelulupa (vain jos myyt alkoholia)'},
+    en:{chip:'Helsinki · opening soon',h1:'Start selling your restaurant or shop products through us',hsub:'Reach new customers in Helsinki with a lower commission. We handle the technology and logistics — you focus on the food and products.',cta:'Start selling with us →',cta2:'Start selling with us →',
+      why_h:'Why partner with us',w1t:'Lower commission',w1p:'Our leaner cost structure means a lower commission than the big platforms — more stays with you.',w2t:'New customers',w2p:'You appear in the customer app and reach nearby customers looking for exactly your products.',w3t:'Easy start',w3p:'We help with onboarding. After approval we send an Android tablet for receiving orders.',
+      how_h:'How it works',st1t:'Fill in the application',st1p:'Enter your company details and upload the required food permits.',st2t:'We review it personally',st2p:'We check your details and permits — a real person, not just an automated system.',st3t:'You get a contract proposal',st3p:'We contact you by email.',hl:'We will email you a contract proposal that clearly sets out the commission rates, practical instructions, and the structure and rules of the cooperation, so you can understand and maximise your profit.',st4t:'You start selling',st4p:'After approval we send an Android tablet, your login details and instructions — and you can start receiving orders.',
+      need_h:'What you need',n1:'Business ID (Y-tunnus)',n2:'Food business notification (Ilppa)',n3:'Own-control plan (omavalvonta)',n4:'A contact person and a bank account',n5:'Alcohol licence (only if you sell alcohol)'}
+  };
+  let lang='fi';
+  function setLang(l){lang=l;document.documentElement.lang=l;
+    document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.lang===l));
+    document.querySelectorAll('[data-i]').forEach(el=>{const k=el.dataset.i;if(T[l][k]!=null)el.textContent=T[l][k];});}
+  setLang('fi');
+</script>
+</body>
+</html>
