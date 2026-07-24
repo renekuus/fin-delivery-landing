@@ -64,6 +64,12 @@
   .submit:disabled{opacity:.5;cursor:not-allowed}
   .formmsg{margin-top:12px;font-size:13px;padding:11px 13px;border-radius:10px;display:none}
   .formmsg.err{display:block;background:#fdecea;color:#a23c28;border:1px solid #f2c9c0}
+  /* inline field errors (item 2) */
+  .field.err input,.field.err select{border-color:#d64525;background:#fff6f4}
+  .field.err > label,.check.err label{color:#b5563f}
+  .seg.err label{border-color:#d64525}
+  #permitWrap.err .file{border-color:#d64525;background:#fff6f4}
+  .ferr{color:#b5563f;font-size:12px;font-weight:600;margin-top:6px;line-height:1.35}
   .hidden{display:none}
   footer{color:#7a8a80;font-size:12px;text-align:center;padding:26px 20px}
   .done{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:40px 26px;margin-top:-24px;text-align:center}
@@ -240,13 +246,80 @@
       m_valid:'Please fill in all required fields correctly.',m_dup:'An application with this email already exists.',m_rate:'Too many attempts. Please try again shortly.',m_err:'Something went wrong. Please try again.'}
   };
   let lang='fi';
+
+  /* --- inline field errors (item 2) --- */
+  var ERRT={
+    e_req:{fi:'Ole hyvä ja täytä tämä kenttä.',en:'Please fill in this field.'},
+    e_email:{fi:'Tarkista sähköpostiosoite — siinä voi olla kirjoitusvirhe tai ylimääräinen välilyönti.',en:'Please check your email address — there may be a typo or an extra space.'},
+    e_phone:{fi:'Tarkista puhelinnumero (esim. +358 40 123 4567).',en:'Please check the phone number (e.g. +358 40 123 4567).'},
+    e_choose:{fi:'Valitse vaihtoehto.',en:'Please choose an option.'},
+    e_ytunnus:{fi:'Y-tunnus muodossa 1234567-8.',en:'Business ID in the format 1234567-8.'},
+    e_check:{fi:'Vahvista tämä jatkaaksesi.',en:'Please confirm this to continue.'},
+    e_age:{fi:'Sinun on oltava vähintään 18-vuotias.',en:'You must be at least 18 years old.'},
+    e_permit:{fi:'Lataa vaadittu asiakirja.',en:'Please upload the required document.'}
+  };
+  var EMAIL_RE=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  function digits(s){return (s||'').replace(/\D/g,'');}
+  function fieldBox(name){
+    var el=document.querySelector('[name="'+name+'"]');
+    if(!el)return null;
+    return el.closest('.field')||el.closest('.check')||el.closest('.seg');
+  }
+  function boxErr(box,fi,en){
+    if(!box)return;
+    box.classList.add('err');
+    var asChild=box.classList.contains('field');
+    var e;
+    if(asChild){
+      e=box.querySelector(':scope > .ferr');
+      if(!e){e=document.createElement('div');e.className='ferr';box.appendChild(e);}
+    }else{
+      e=box.nextElementSibling;
+      if(!e||!e.classList||!e.classList.contains('ferr')){e=document.createElement('div');e.className='ferr';box.parentNode.insertBefore(e,box.nextSibling);}
+    }
+    e.dataset.fi=fi;e.dataset.en=en;e.textContent=(lang==='en'?en:fi);
+  }
+  function setErr(name,fi,en){boxErr(fieldBox(name),fi,en);}
+  function setErrK(name,key){setErr(name,ERRT[key].fi,ERRT[key].en);}
+  function clearErr(name){
+    var box=fieldBox(name);if(!box)return;
+    box.classList.remove('err');
+    var e=box.classList.contains('field')?box.querySelector(':scope > .ferr'):box.nextElementSibling;
+    if(e&&e.classList&&e.classList.contains('ferr'))e.remove();
+  }
+  function clearAllErr(){
+    document.querySelectorAll('#form .ferr').forEach(function(e){e.remove();});
+    document.querySelectorAll('#form .err').forEach(function(b){b.classList.remove('err');});
+  }
+  function renderErrLang(){
+    document.querySelectorAll('#form .ferr').forEach(function(e){e.textContent=(lang==='en'?e.dataset.en:e.dataset.fi);});
+  }
+  function applyServerErrors(details){
+    var first=null;
+    Object.keys(details).forEach(function(name){
+      var info=details[name],fi,en;
+      if(info&&typeof info==='object'&&!Array.isArray(info)&&(info.fi||info.en)){fi=info.fi||info.en;en=info.en||info.fi;}
+      else{var t=Array.isArray(info)?info.join(' '):String(info);fi=t;en=t;}
+      setErr(name,fi,en);
+      if(!first)first=fieldBox(name);
+    });
+    return first;
+  }
+
   function setLang(l){
     lang=l;document.documentElement.lang=l;
     document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.lang===l));
     document.querySelectorAll('[data-i]').forEach(el=>{const k=el.dataset.i;if(T[l][k]!=null)el.textContent=T[l][k];});
+    renderErrLang();
   }
 
   const $=s=>document.querySelector(s);
+
+  document.querySelectorAll('#form input,#form select,#form textarea').forEach(function(el){
+    var ev=(el.type==='checkbox'||el.type==='radio'||el.tagName==='SELECT')?'change':'input';
+    el.addEventListener(ev,function(){if(el.name)clearErr(el.name);});
+  });
+
   $('#citizen').addEventListener('change',e=>{$('#permitWrap').classList.toggle('hidden',e.target.value!=='non_eu');});
   document.querySelectorAll('#modelSeg input').forEach(r=>r.addEventListener('change',()=>{
     document.querySelectorAll('#modelSeg label').forEach(l=>l.classList.toggle('sel',l.querySelector('input').checked));
@@ -301,20 +374,33 @@
     opt('drivers_license_key',keys.drivers_license);
     opt('insurance_key',keys.insurance);
 
-    const bad=[];
-    if(!p.full_name||!p.date_of_birth||!p.email||!p.phone)bad.push(1);
-    if(!p.citizenship_status||!p.model||!p.vehicle_type)bad.push(1);
-    if(!p.tc_accepted||!p.privacy_accepted||!p.work_authorized)bad.push(1);
-    if(p.citizenship_status==='non_eu'&&!p.work_permit_key)bad.push(1);
-    if(p.model==='entrepreneur'&&!/^\d{7}-\d$/.test(p.y_tunnus||''))bad.push(1);
-    if(p.date_of_birth){const a=(Date.now()-new Date(p.date_of_birth))/(365.25*864e5);if(a<18)bad.push(1);}
-    if(bad.length){msg.className='formmsg err';msg.textContent=T[lang].m_valid;return;}
+    clearAllErr();
+    var firstBad=null;
+    function fail(name,key){setErrK(name,key);if(!firstBad)firstBad=fieldBox(name);}
+    if(!p.full_name)fail('full_name','e_req');
+    if(!p.date_of_birth)fail('date_of_birth','e_req');
+    else{var age=(Date.now()-new Date(p.date_of_birth))/(365.25*864e5);if(age<18)fail('date_of_birth','e_age');}
+    if(!p.email)fail('email','e_req');else if(!EMAIL_RE.test(p.email))fail('email','e_email');
+    if(!p.phone)fail('phone','e_req');else if(digits(p.phone).length<7)fail('phone','e_phone');
+    if(!p.citizenship_status)fail('citizenship_status','e_choose');
+    if(!p.model)fail('model','e_choose');
+    if(!p.vehicle_type)fail('vehicle_type','e_choose');
+    if(!p.work_authorized)fail('work_authorized','e_check');
+    if(!p.tc_accepted)fail('tc_accepted','e_check');
+    if(!p.privacy_accepted)fail('privacy_accepted','e_check');
+    if(p.citizenship_status==='non_eu'&&!p.work_permit_key){var pw=document.querySelector('#permitWrap');boxErr(pw,ERRT.e_permit.fi,ERRT.e_permit.en);if(!firstBad)firstBad=pw;}
+    if(p.model==='entrepreneur'&&!/^\d{7}-\d$/.test(p.y_tunnus||''))fail('y_tunnus',(p.y_tunnus?'e_ytunnus':'e_req'));
+    if(firstBad){firstBad.scrollIntoView({behavior:'smooth',block:'center'});return;}
 
     const btn=$('#submitBtn');btn.disabled=true;
     try{
       const r=await fetch(API+'/api/v1/register/courier',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(p)});
       if(r.status===201){$('#form').classList.add('hidden');$('#doneScreen').classList.remove('hidden');window.scrollTo(0,0);return;}
-      const d=await r.json().catch(()=>({}));const code=(d.error||{}).code;
+      const d=await r.json().catch(()=>({}));const err=d.error||{};const code=err.code;
+      if(err.details&&typeof err.details==='object'){
+        const first=applyServerErrors(err.details);
+        if(first){first.scrollIntoView({behavior:'smooth',block:'center'});btn.disabled=false;return;}
+      }
       msg.className='formmsg err';
       msg.textContent = code==='conflict'?T[lang].m_dup : code==='rate_limited'?T[lang].m_rate : (code==='validation_failed'||code==='invalid_upload')?T[lang].m_valid : T[lang].m_err;
     }catch(err){msg.className='formmsg err';msg.textContent=T[lang].m_err;}
