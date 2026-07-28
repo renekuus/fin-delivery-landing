@@ -627,7 +627,7 @@ window.FD_ATTR=(function(){
       body:JSON.stringify(Object.assign({email:v,consent:true,lang:l,source:'landing_hero',tc_version:TC_VERSION},ATTR))
     }).then(function(r){
       if(r.status===201){form.reset();show(M.ok[l],'ok');
-        try{if(typeof gtag==='function'&&localStorage.getItem('fd_consent')==='granted'){gtag('event','generate_lead',{campaign:ATTR.utm_campaign||undefined,source:ATTR.utm_source||undefined,medium:ATTR.utm_medium||undefined});}}catch(e){}
+        try{if(typeof gtag==='function'&&localStorage.getItem('fd_consent_v2')==='granted'){gtag('event','generate_lead',{campaign:ATTR.utm_campaign||undefined,source:ATTR.utm_source||undefined,medium:ATTR.utm_medium||undefined});}}catch(e){}
         return;}
       if(r.status===409){form.reset();show(M.dupe[l],'ok');return;}
       if(r.status===429){show(M.rate[l],'err');return;}

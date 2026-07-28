@@ -354,7 +354,7 @@ window.FD_ATTR=(function(){
     try{
       const r=await fetch(API+'/api/v1/register/merchant',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(p)});
       if(r.status===201){
-        try{if(typeof gtag==='function'&&localStorage.getItem('fd_consent')==='granted'){gtag('event','merchant_application',{campaign:p.utm_campaign||undefined,source:p.utm_source||undefined,medium:p.utm_medium||undefined});}}catch(e){}
+        try{if(typeof gtag==='function'&&localStorage.getItem('fd_consent_v2')==='granted'){gtag('event','merchant_application',{campaign:p.utm_campaign||undefined,source:p.utm_source||undefined,medium:p.utm_medium||undefined});}}catch(e){}
         $('#form').classList.add('hidden');$('#doneScreen').classList.remove('hidden');window.scrollTo(0,0);return;}
       const d=await r.json().catch(()=>({}));const err=d.error||{};const code=err.code;
       if(err.details&&typeof err.details==='object'){
