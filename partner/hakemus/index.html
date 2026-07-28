@@ -1,6 +1,32 @@
 <!DOCTYPE html>
 <html lang="fi">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3GVPY8GN3C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  function fdGrantAll(){
+    gtag('consent','update',{
+      'ad_storage'         : 'granted',
+      'ad_user_data'       : 'granted',
+      'ad_personalization' : 'granted',
+      'analytics_storage'  : 'granted'
+    });
+  }
+  // Consent Mode v2 — kaikki evätty kunnes käyttäjä hyväksyy
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'analytics_storage': 'denied',
+    'wait_for_update': 500
+  });
+  (function(){ try { if (localStorage.getItem('fd_consent_v2') === 'granted') fdGrantAll(); localStorage.removeItem('fd_consent'); } catch(e){} })();
+
+  gtag('js', new Date());
+  gtag('config', 'G-3GVPY8GN3C');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
@@ -369,5 +395,29 @@ window.FD_ATTR=(function(){
 
   setLang('fi');
 </script>
+
+<!-- Cookie consent banner -->
+<div id="fd-cookie-banner" style="display:none;position:fixed;left:0;right:0;bottom:0;z-index:9999;background:#0F3D2E;color:#fff;padding:16px 20px;box-shadow:0 -2px 12px rgba(0,0,0,.25);font-size:14px;line-height:1.5;">
+  <div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;justify-content:space-between;">
+    <span style="flex:1 1 320px;">Käytämme evästeitä kävijätilastointiin ja markkinoinnin kohdentamiseen. &mdash; We use cookies for visitor analytics and marketing targeting. <a href="/privacy/" style="color:#9fe3c5;text-decoration:underline;">Lue lisää / Learn more</a></span>
+    <span style="display:flex;gap:10px;flex:0 0 auto;">
+      <button id="fd-cookie-reject" style="cursor:pointer;border:1px solid rgba(255,255,255,.4);background:transparent;color:#fff;padding:9px 18px;border-radius:8px;font-size:14px;">Hylkää / Decline</button>
+      <button id="fd-cookie-accept" style="cursor:pointer;border:0;background:#fff;color:#0F3D2E;padding:9px 18px;border-radius:8px;font-weight:600;font-size:14px;">Hyväksy / Accept</button>
+    </span>
+  </div>
+</div>
+<script>
+(function(){
+  var b=document.getElementById('fd-cookie-banner');
+  var s=null; try{s=localStorage.getItem('fd_consent_v2');}catch(e){}
+  if(!s){b.style.display='block';}
+  function choose(v){ try{localStorage.setItem('fd_consent_v2',v);}catch(e){}
+    if(v==='granted'&&typeof gtag==='function'){fdGrantAll();}
+    b.style.display='none'; }
+  document.getElementById('fd-cookie-accept').onclick=function(){choose('granted');};
+  document.getElementById('fd-cookie-reject').onclick=function(){choose('denied');};
+})();
+</script>
+
 </body>
 </html>
