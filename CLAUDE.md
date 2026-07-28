@@ -38,8 +38,8 @@ nofollow">`; only the homepage is in `sitemap.xml`.
 
 ## 2. Deploy — git pull, nothing else
 
-The server (`13.60.125.111`) serves `/var/www/landing` with nginx, and **that directory is a
-git checkout of this repo** (owned by `ubuntu`).
+The production host serves `/var/www/landing` with nginx, and **that directory is a
+git checkout of this repo** (owned by the deploy user).
 
 ```bash
 # local
