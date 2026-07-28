@@ -53,10 +53,20 @@
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "fin-delivery",
+  "name": "Fin Delivery Oy",
+  "legalName": "Fin Delivery Oy",
   "url": "https://www.fin-delivery.com",
   "description": "A sustainable food platform connecting local producers, restaurants, customers and couriers.",
   "email": "jorma@fin-delivery.com",
+  "taxID": "3584658-3",
+  "vatID": "FI35846583",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Nöykkiönlaaksontie 42",
+    "postalCode": "02330",
+    "addressLocality": "Espoo",
+    "addressCountry": "FI"
+  },
   "foundingLocation": { "@type": "Place", "name": "Helsinki, Finland" },
   "areaServed": { "@type": "City", "name": "Helsinki" }
 }
@@ -269,6 +279,23 @@
   .founder a:hover{color:var(--green-lt);border-color:var(--green-lt)}
   footer{background:#081D15;color:rgba(255,255,255,.4);text-align:center;padding:26px;font-size:12.5px}
   footer .tld{font-family:'Sora';font-weight:600;color:rgba(255,255,255,.6)}
+  footer .legal{margin-top:8px;color:rgba(255,255,255,.35);font-size:11.5px;line-height:1.5}
+  /* ---------- waitlist ---------- */
+  .waitlist{margin-top:28px;max-width:440px}
+  .wl-label{display:block;font-size:14.5px;color:rgba(255,255,255,.85);margin-bottom:10px;font-weight:500}
+  .wl-row{display:flex;gap:8px;flex-wrap:wrap}
+  .waitlist input[type=email]{flex:1 1 200px;min-width:0;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:12px 14px;color:#fff;font-size:15px;font-family:inherit}
+  .waitlist input[type=email]::placeholder{color:rgba(255,255,255,.45)}
+  .waitlist input[type=email]:focus{outline:none;border-color:var(--green-lt);background:rgba(255,255,255,.12)}
+  .wl-row button{flex:0 0 auto;cursor:pointer;border:0;border-radius:12px;padding:12px 20px;font-size:15px;font-weight:600;font-family:inherit;background:var(--green-lt);color:var(--forest);transition:.2s}
+  .wl-row button:hover{background:#fff}
+  .wl-row button:disabled{opacity:.6;cursor:default}
+  .wl-consent{display:flex;gap:8px;align-items:flex-start;margin-top:12px;font-size:12.5px;color:rgba(255,255,255,.6);line-height:1.5;cursor:pointer}
+  .wl-consent input{margin-top:2px;flex:0 0 auto}
+  .wl-consent a{color:var(--green-lt)}
+  .wl-msg{margin-top:12px;font-size:13.5px;min-height:18px}
+  .wl-msg.ok{color:var(--green-lt)}
+  .wl-msg.err{color:#ff9b8a}
 
   /* language visibility */
   [data-en]{display:none}
@@ -331,6 +358,26 @@
         <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="#6BBF8A" stroke-width="2"><path d="M3 7l9-4 9 4-9 4-9-4zM3 7v10l9 4 9-4V7"/></svg><span data-fi>Paikalliset tuottajat</span><span data-en>Local producers</span></span>
         <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="#6BBF8A" stroke-width="2"><path d="M4 20c0-8 6-14 16-16-1 10-7 16-16 16z"/></svg><span data-fi>Kestävä</span><span data-en>Sustainable</span></span>
       </div>
+
+      <!-- waitlist signup -->
+      <form id="waitform" class="waitlist" novalidate>
+        <label class="wl-label" for="wl-email">
+          <span data-fi>Saat tiedon, kun avaamme Helsingissä.</span>
+          <span data-en style="display:none">Get notified when we launch in Helsinki.</span>
+        </label>
+        <div class="wl-row">
+          <input id="wl-email" name="email" type="email" autocomplete="email" placeholder="you@email.com" required>
+          <button type="submit" id="wl-submit">
+            <span data-fi>Ilmoita minulle</span><span data-en style="display:none">Notify me</span>
+          </button>
+        </div>
+        <label class="wl-consent">
+          <input type="checkbox" id="wl-consent">
+          <span data-fi>Hyväksyn, että minuun voidaan olla yhteydessä palvelun avautumisesta. <a href="/privacy">Tietosuoja</a>.</span>
+          <span data-en style="display:none">I agree to be contacted about the launch. <a href="/privacy">Privacy</a>.</span>
+        </label>
+        <div class="wl-msg" id="wl-msg" role="status" aria-live="polite"></div>
+      </form>
     </div>
 
     <!-- animated stage -->
@@ -452,7 +499,8 @@
 </section>
 
 <footer>
-  <span class="tld">fin-delivery.com</span> — <span data-fi>© 2026 · Kaikki oikeudet pidätetään · Helsinki, Suomi</span><span data-en style="display:none">© 2026 · All rights reserved · Helsinki, Finland</span>
+  <span class="tld">fin-delivery.com</span> — <span data-fi>© 2026 · Kaikki oikeudet pidätetään</span><span data-en style="display:none">© 2026 · All rights reserved</span>
+  <div class="legal">Fin Delivery Oy · Y-tunnus 3584658-3 · Nöykkiönlaaksontie 42, 02330 Espoo, Finland</div>
 </footer>
 
 <script>
@@ -504,6 +552,82 @@
     b.style.display='none'; }
   document.getElementById('fd-cookie-accept').onclick=function(){choose('granted');};
   document.getElementById('fd-cookie-reject').onclick=function(){choose('denied');};
+})();
+</script>
+
+<!-- campaign attribution: first-touch, localStorage, 90 days -->
+<script>
+window.FD_ATTR=(function(){
+  var KEY='fd_attr', TTL=90*864e5;
+  var FIELDS=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid','fbclid','referrer','landing_path'];
+  function shape(o){var r={},i;for(i=0;i<FIELDS.length;i++){r[FIELDS[i]]=(o&&o[FIELDS[i]])||null;}return r;}
+  try{
+    var q=new URLSearchParams(location.search);
+    var pick=function(k){var v=q.get(k);return v?v.slice(0,255):null;};
+    var fresh={
+      utm_source:pick('utm_source'), utm_medium:pick('utm_medium'),
+      utm_campaign:pick('utm_campaign'), utm_content:pick('utm_content'),
+      utm_term:pick('utm_term'), gclid:pick('gclid'), fbclid:pick('fbclid'),
+      referrer:(document.referrer||'').slice(0,255)||null,
+      landing_path:(location.pathname+location.search).slice(0,255)||null
+    };
+    var signal=!!(fresh.utm_source||fresh.utm_medium||fresh.utm_campaign||fresh.utm_content||fresh.utm_term||fresh.gclid||fresh.fbclid||fresh.referrer);
+    var saved=null;
+    try{saved=JSON.parse(localStorage.getItem(KEY)||'null');}catch(e){saved=null;}
+    if(saved&&(!saved.exp||Date.now()>saved.exp)){saved=null;try{localStorage.removeItem(KEY);}catch(e){}}
+    if(saved) return shape(saved);            // first touch wins — never overwrite
+    if(!signal) return shape(fresh);          // direct visit, nothing worth storing
+    fresh.exp=Date.now()+TTL;
+    try{localStorage.setItem(KEY,JSON.stringify(fresh));}catch(e){}
+    return shape(fresh);
+  }catch(e){return shape(null);}
+})();
+</script>
+
+<!-- waitlist form -->
+<script>
+(function(){
+  var API='https://api.fin-delivery.com';
+  var TC_VERSION='2026-07';
+  var form=document.getElementById('waitform');
+  if(!form) return;
+  var ATTR=window.FD_ATTR||{};
+  var email=document.getElementById('wl-email');
+  var consent=document.getElementById('wl-consent');
+  var btn=document.getElementById('wl-submit');
+  var msg=document.getElementById('wl-msg');
+  function lang(){return document.body.classList.contains('en')?'en':'fi';}
+  function show(txt,cls){msg.textContent=txt;msg.className='wl-msg '+(cls||'');}
+  var M={
+    invalid:{fi:'Tarkista sähköpostiosoite.',en:'Please check your email address.'},
+    consent:{fi:'Rastita suostumus, kiitos.',en:'Please tick the consent box.'},
+    ok:{fi:'Kiitos! Ilmoitamme heti, kun avaamme.',en:"Thanks! We'll let you know the moment we launch."},
+    dupe:{fi:'Olet jo listalla — kiitos!',en:"You're already on the list — thanks!"},
+    rate:{fi:'Liian monta yritystä. Yritä hetken kuluttua.',en:'Too many attempts. Please try again shortly.'},
+    err:{fi:'Jokin meni pieleen. Yritä uudelleen.',en:'Something went wrong. Please try again.'}
+  };
+  var re=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var l=lang();
+    var v=(email.value||'').trim();
+    if(!re.test(v)){show(M.invalid[l],'err');email.focus();return;}
+    if(!consent.checked){show(M.consent[l],'err');return;}
+    btn.disabled=true;show('','');
+    fetch(API+'/api/v1/waitlist',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(Object.assign({email:v,consent:true,lang:l,source:'landing_hero',tc_version:TC_VERSION},ATTR))
+    }).then(function(r){
+      if(r.status===201){form.reset();show(M.ok[l],'ok');
+        try{if(typeof gtag==='function'&&localStorage.getItem('fd_consent')==='granted'){gtag('event','generate_lead',{campaign:ATTR.utm_campaign||undefined,source:ATTR.utm_source||undefined,medium:ATTR.utm_medium||undefined});}}catch(e){}
+        return;}
+      if(r.status===409){form.reset();show(M.dupe[l],'ok');return;}
+      if(r.status===429){show(M.rate[l],'err');return;}
+      if(r.status===400){show(M.invalid[l],'err');return;}
+      show(M.err[l],'err');
+    }).catch(function(){show(M.err[l],'err');})
+      .then(function(){btn.disabled=false;});
+  });
 })();
 </script>
 

@@ -168,7 +168,36 @@
   </div>
 </main>
 
-<footer>© Fin-Delivery OY · Helsinki</footer>
+<footer>© 2026 Fin Delivery Oy · Y-tunnus 3584658-3 · Nöykkiönlaaksontie 42, 02330 Espoo, Finland</footer>
+
+<!-- campaign attribution: first-touch, localStorage, 90 days -->
+<script>
+window.FD_ATTR=(function(){
+  var KEY='fd_attr', TTL=90*864e5;
+  var FIELDS=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid','fbclid','referrer','landing_path'];
+  function shape(o){var r={},i;for(i=0;i<FIELDS.length;i++){r[FIELDS[i]]=(o&&o[FIELDS[i]])||null;}return r;}
+  try{
+    var q=new URLSearchParams(location.search);
+    var pick=function(k){var v=q.get(k);return v?v.slice(0,255):null;};
+    var fresh={
+      utm_source:pick('utm_source'), utm_medium:pick('utm_medium'),
+      utm_campaign:pick('utm_campaign'), utm_content:pick('utm_content'),
+      utm_term:pick('utm_term'), gclid:pick('gclid'), fbclid:pick('fbclid'),
+      referrer:(document.referrer||'').slice(0,255)||null,
+      landing_path:(location.pathname+location.search).slice(0,255)||null
+    };
+    var signal=!!(fresh.utm_source||fresh.utm_medium||fresh.utm_campaign||fresh.utm_content||fresh.utm_term||fresh.gclid||fresh.fbclid||fresh.referrer);
+    var saved=null;
+    try{saved=JSON.parse(localStorage.getItem(KEY)||'null');}catch(e){saved=null;}
+    if(saved&&(!saved.exp||Date.now()>saved.exp)){saved=null;try{localStorage.removeItem(KEY);}catch(e){}}
+    if(saved) return shape(saved);            // first touch wins — never overwrite
+    if(!signal) return shape(fresh);          // direct visit, nothing worth storing
+    fresh.exp=Date.now()+TTL;
+    try{localStorage.setItem(KEY,JSON.stringify(fresh));}catch(e){}
+    return shape(fresh);
+  }catch(e){return shape(null);}
+})();
+</script>
 
 <script>
   const API='https://api.fin-delivery.com';
@@ -320,10 +349,13 @@
     if(!p.tc_accepted)fail('tc_accepted','e_check');
     if(firstBad){firstBad.scrollIntoView({behavior:'smooth',block:'center'});return;}
 
+    if(window.FD_ATTR)Object.assign(p,window.FD_ATTR);
     const btn=$('#submitBtn');btn.disabled=true;
     try{
       const r=await fetch(API+'/api/v1/register/merchant',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(p)});
-      if(r.status===201){$('#form').classList.add('hidden');$('#doneScreen').classList.remove('hidden');window.scrollTo(0,0);return;}
+      if(r.status===201){
+        try{if(typeof gtag==='function'&&localStorage.getItem('fd_consent')==='granted'){gtag('event','merchant_application',{campaign:p.utm_campaign||undefined,source:p.utm_source||undefined,medium:p.utm_medium||undefined});}}catch(e){}
+        $('#form').classList.add('hidden');$('#doneScreen').classList.remove('hidden');window.scrollTo(0,0);return;}
       const d=await r.json().catch(()=>({}));const err=d.error||{};const code=err.code;
       if(err.details&&typeof err.details==='object'){
         const first=applyServerErrors(err.details);
