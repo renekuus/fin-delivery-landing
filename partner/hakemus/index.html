@@ -27,6 +27,37 @@
     fbq('init','1355278872791856');
     fbq('track','PageView');
   }
+  function fdRunAttr(){
+    var KEY='fd_attr', TTL=90*864e5;
+    var FIELDS=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid','fbclid','referrer','landing_path'];
+    var REAL=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid','fbclid'];
+    function shape(o){var r={},i;for(i=0;i<FIELDS.length;i++){r[FIELDS[i]]=(o&&o[FIELDS[i]])||null;}return r;}
+    function hasReal(o){ return !!o && REAL.some(function(k){ return o[k]; }); }
+    try{
+      if(localStorage.getItem('fd_consent_v3')!=='granted'){ window.FD_ATTR=shape(null); return; }
+      var q=new URLSearchParams(location.search);
+      var pick=function(k){var v=q.get(k);return v?v.slice(0,255):null;};
+      var fresh={
+        utm_source:pick('utm_source'), utm_medium:pick('utm_medium'),
+        utm_campaign:pick('utm_campaign'), utm_content:pick('utm_content'),
+        utm_term:pick('utm_term'), gclid:pick('gclid'), fbclid:pick('fbclid'),
+        referrer:(document.referrer||'').slice(0,255)||null,
+        landing_path:(location.pathname+location.search).slice(0,255)||null
+      };
+      var saved=null;
+      try{saved=JSON.parse(localStorage.getItem(KEY)||'null');}catch(e){saved=null;}
+      if(saved&&(!saved.exp||Date.now()>saved.exp)){saved=null;try{localStorage.removeItem(KEY);}catch(e){}}
+      if(hasReal(fresh)&&!hasReal(saved)){        // real source, and nothing real stored yet — an empty record may be overwritten
+        fresh.exp=Date.now()+TTL;
+        try{localStorage.setItem(KEY,JSON.stringify(fresh));}catch(e){}
+        window.FD_ATTR=shape(fresh); return;
+      }
+      if(hasReal(saved)){ window.FD_ATTR=shape(saved); return; }    // first touch wins — never overwrite a real source
+      try{localStorage.removeItem(KEY);}catch(e){}                   // no real source anywhere — never create or keep an empty record
+      window.FD_ATTR=shape(fresh);
+    }catch(e){ window.FD_ATTR=shape(null); }
+  }
+  fdRunAttr();
   // Consent Mode v2 — kaikki evätty kunnes käyttäjä hyväksyy
   gtag('consent', 'default', {
     'ad_storage': 'denied',
@@ -35,7 +66,7 @@
     'analytics_storage': 'denied',
     'wait_for_update': 500
   });
-  (function(){ try { if (localStorage.getItem('fd_consent_v3') === 'granted') { fdGrantAll(); fdInitPixel(); } localStorage.removeItem('fd_consent'); localStorage.removeItem('fd_consent_v2'); } catch(e){} })();
+  (function(){ try { if (localStorage.getItem('fd_consent_v3') === 'granted') { fdGrantAll(); fdInitPixel(); fdRunAttr(); } localStorage.removeItem('fd_consent'); localStorage.removeItem('fd_consent_v2'); } catch(e){} })();
 
   gtag('js', new Date());
   gtag('config', 'G-3GVPY8GN3C');
@@ -207,39 +238,6 @@
 </main>
 
 <footer>© 2026 Fin Delivery Oy · Y-tunnus 3584658-3 · Nöykkiönlaaksontie 42, 02330 Espoo, Finland</footer>
-
-<!-- campaign attribution: first-touch, localStorage, 90 days -->
-<script>
-window.FD_ATTR=(function(){
-  var KEY='fd_attr', TTL=90*864e5;
-  var FIELDS=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid','fbclid','referrer','landing_path'];
-  var REAL=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid','fbclid'];
-  function shape(o){var r={},i;for(i=0;i<FIELDS.length;i++){r[FIELDS[i]]=(o&&o[FIELDS[i]])||null;}return r;}
-  function hasReal(o){ return !!o && REAL.some(function(k){ return o[k]; }); }
-  try{
-    var q=new URLSearchParams(location.search);
-    var pick=function(k){var v=q.get(k);return v?v.slice(0,255):null;};
-    var fresh={
-      utm_source:pick('utm_source'), utm_medium:pick('utm_medium'),
-      utm_campaign:pick('utm_campaign'), utm_content:pick('utm_content'),
-      utm_term:pick('utm_term'), gclid:pick('gclid'), fbclid:pick('fbclid'),
-      referrer:(document.referrer||'').slice(0,255)||null,
-      landing_path:(location.pathname+location.search).slice(0,255)||null
-    };
-    var saved=null;
-    try{saved=JSON.parse(localStorage.getItem(KEY)||'null');}catch(e){saved=null;}
-    if(saved&&(!saved.exp||Date.now()>saved.exp)){saved=null;try{localStorage.removeItem(KEY);}catch(e){}}
-    if(hasReal(fresh)&&!hasReal(saved)){        // real source, and nothing real stored yet — an empty record may be overwritten
-      fresh.exp=Date.now()+TTL;
-      try{localStorage.setItem(KEY,JSON.stringify(fresh));}catch(e){}
-      return shape(fresh);
-    }
-    if(hasReal(saved)) return shape(saved);     // first touch wins — never overwrite a real source
-    try{localStorage.removeItem(KEY);}catch(e){} // no real source anywhere — never create or keep an empty record
-    return shape(fresh);
-  }catch(e){return shape(null);}
-})();
-</script>
 
 <script>
   const API='https://api.fin-delivery.com';
@@ -428,7 +426,7 @@ window.FD_ATTR=(function(){
   var s=null; try{s=localStorage.getItem('fd_consent_v3');}catch(e){}
   if(!s){b.style.display='block';}
   function choose(v){ try{localStorage.setItem('fd_consent_v3',v);}catch(e){}
-    if(v==='granted'&&typeof gtag==='function'){fdGrantAll();fdInitPixel();}
+    if(v==='granted'&&typeof gtag==='function'){fdGrantAll();fdInitPixel();fdRunAttr();}
     b.style.display='none'; }
   document.getElementById('fd-cookie-accept').onclick=function(){choose('granted');};
   document.getElementById('fd-cookie-reject').onclick=function(){choose('denied');};
