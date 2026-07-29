@@ -16,6 +16,17 @@
       'analytics_storage'  : 'granted'
     });
   }
+  function fdInitPixel(){
+    if (window.__fdPixel) return;
+    window.__fdPixel = true;
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+    (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','1355278872791856');
+    fbq('track','PageView');
+  }
   // Consent Mode v2 — kaikki evätty kunnes käyttäjä hyväksyy
   gtag('consent', 'default', {
     'ad_storage': 'denied',
@@ -24,7 +35,7 @@
     'analytics_storage': 'denied',
     'wait_for_update': 500
   });
-  (function(){ try { if (localStorage.getItem('fd_consent_v2') === 'granted') fdGrantAll(); localStorage.removeItem('fd_consent'); } catch(e){} })();
+  (function(){ try { if (localStorage.getItem('fd_consent_v3') === 'granted') { fdGrantAll(); fdInitPixel(); } localStorage.removeItem('fd_consent'); localStorage.removeItem('fd_consent_v2'); } catch(e){} })();
 
   gtag('js', new Date());
   gtag('config', 'G-3GVPY8GN3C');
@@ -381,7 +392,7 @@ window.FD_ATTR=(function(){
     try{
       const r=await fetch(API+'/api/v1/register/merchant',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(p)});
       if(r.status===201){
-        try{if(typeof gtag==='function'&&localStorage.getItem('fd_consent_v2')==='granted'){gtag('event','merchant_application',{campaign:p.utm_campaign||undefined,source:p.utm_source||undefined,medium:p.utm_medium||undefined});}}catch(e){}
+        try{if(typeof gtag==='function'&&localStorage.getItem('fd_consent_v3')==='granted'){gtag('event','merchant_application',{campaign:p.utm_campaign||undefined,source:p.utm_source||undefined,medium:p.utm_medium||undefined});if (typeof fbq === 'function') fbq('track','SubmitApplication',{content_name:'merchant_application', content_category:'b2b_merchant'});}}catch(e){}
         $('#form').classList.add('hidden');$('#doneScreen').classList.remove('hidden');window.scrollTo(0,0);return;}
       const d=await r.json().catch(()=>({}));const err=d.error||{};const code=err.code;
       if(err.details&&typeof err.details==='object'){
@@ -400,7 +411,7 @@ window.FD_ATTR=(function(){
 <!-- Cookie consent banner -->
 <div id="fd-cookie-banner" style="display:none;position:fixed;left:0;right:0;bottom:0;z-index:9999;background:#0F3D2E;color:#fff;padding:16px 20px;box-shadow:0 -2px 12px rgba(0,0,0,.25);font-size:14px;line-height:1.5;">
   <div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;justify-content:space-between;">
-    <span style="flex:1 1 320px;">Käytämme evästeitä kävijätilastointiin ja markkinoinnin kohdentamiseen. &mdash; We use cookies for visitor analytics and marketing targeting. <a href="/privacy/" style="color:#9fe3c5;text-decoration:underline;">Lue lisää / Learn more</a></span>
+    <span style="flex:1 1 320px;">Käytämme evästeitä kävijätilastointiin ja markkinoinnin kohdentamiseen. Jaamme tietoja myös kolmansille osapuolille (Google, Meta) mainonnan kohdentamista ja mittaamista varten. &mdash; We use cookies for visitor analytics and marketing targeting. <a href="/privacy/" style="color:#9fe3c5;text-decoration:underline;">Lue lisää / Learn more</a></span>
     <span style="display:flex;gap:10px;flex:0 0 auto;">
       <button id="fd-cookie-reject" style="cursor:pointer;border:1px solid rgba(255,255,255,.4);background:transparent;color:#fff;padding:9px 18px;border-radius:8px;font-size:14px;">Hylkää / Decline</button>
       <button id="fd-cookie-accept" style="cursor:pointer;border:0;background:#fff;color:#0F3D2E;padding:9px 18px;border-radius:8px;font-weight:600;font-size:14px;">Hyväksy / Accept</button>
@@ -410,10 +421,10 @@ window.FD_ATTR=(function(){
 <script>
 (function(){
   var b=document.getElementById('fd-cookie-banner');
-  var s=null; try{s=localStorage.getItem('fd_consent_v2');}catch(e){}
+  var s=null; try{s=localStorage.getItem('fd_consent_v3');}catch(e){}
   if(!s){b.style.display='block';}
-  function choose(v){ try{localStorage.setItem('fd_consent_v2',v);}catch(e){}
-    if(v==='granted'&&typeof gtag==='function'){fdGrantAll();}
+  function choose(v){ try{localStorage.setItem('fd_consent_v3',v);}catch(e){}
+    if(v==='granted'&&typeof gtag==='function'){fdGrantAll();fdInitPixel();}
     b.style.display='none'; }
   document.getElementById('fd-cookie-accept').onclick=function(){choose('granted');};
   document.getElementById('fd-cookie-reject').onclick=function(){choose('denied');};
