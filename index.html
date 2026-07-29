@@ -580,7 +580,9 @@
 window.FD_ATTR=(function(){
   var KEY='fd_attr', TTL=90*864e5;
   var FIELDS=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid','fbclid','referrer','landing_path'];
+  var REAL=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid','fbclid'];
   function shape(o){var r={},i;for(i=0;i<FIELDS.length;i++){r[FIELDS[i]]=(o&&o[FIELDS[i]])||null;}return r;}
+  function hasReal(o){ return !!o && REAL.some(function(k){ return o[k]; }); }
   try{
     var q=new URLSearchParams(location.search);
     var pick=function(k){var v=q.get(k);return v?v.slice(0,255):null;};
@@ -591,14 +593,16 @@ window.FD_ATTR=(function(){
       referrer:(document.referrer||'').slice(0,255)||null,
       landing_path:(location.pathname+location.search).slice(0,255)||null
     };
-    var signal=!!(fresh.utm_source||fresh.utm_medium||fresh.utm_campaign||fresh.utm_content||fresh.utm_term||fresh.gclid||fresh.fbclid||fresh.referrer);
     var saved=null;
     try{saved=JSON.parse(localStorage.getItem(KEY)||'null');}catch(e){saved=null;}
     if(saved&&(!saved.exp||Date.now()>saved.exp)){saved=null;try{localStorage.removeItem(KEY);}catch(e){}}
-    if(saved) return shape(saved);            // first touch wins — never overwrite
-    if(!signal) return shape(fresh);          // direct visit, nothing worth storing
-    fresh.exp=Date.now()+TTL;
-    try{localStorage.setItem(KEY,JSON.stringify(fresh));}catch(e){}
+    if(hasReal(fresh)&&!hasReal(saved)){        // real source, and nothing real stored yet — an empty record may be overwritten
+      fresh.exp=Date.now()+TTL;
+      try{localStorage.setItem(KEY,JSON.stringify(fresh));}catch(e){}
+      return shape(fresh);
+    }
+    if(hasReal(saved)) return shape(saved);     // first touch wins — never overwrite a real source
+    try{localStorage.removeItem(KEY);}catch(e){} // no real source anywhere — never create or keep an empty record
     return shape(fresh);
   }catch(e){return shape(null);}
 })();
