@@ -1,118 +1,223 @@
 <!DOCTYPE html>
 <html lang="fi">
 <head>
-<meta charset="UTF-8" />
-<meta name="facebook-domain-verification" content="1jwlfywwpd5x9ediolygnsv4whx37j" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Tietosuoja- ja evästekäytäntö | Fin-Delivery</title>
-<meta name="robots" content="index, follow" />
-<link rel="canonical" href="https://www.fin-delivery.com/privacy/" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index, follow">
+<title>Tietosuojaseloste — Fin Delivery</title>
+<meta name="description" content="Miten Fin Delivery Oy käsittelee asiakkaidensa henkilötietoja. Sijainti, tilaukset, maksut, säilytysajat ja oikeutesi.">
+<link rel="canonical" href="https://www.fin-delivery.com/privacy/">
+<link rel="alternate" hreflang="fi" href="https://www.fin-delivery.com/privacy/">
+<link rel="alternate" hreflang="en" href="https://www.fin-delivery.com/privacy/en/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{--green:#0F3D2E;--accent:#9fe3c5;}
-  *{box-sizing:border-box;}
-  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;line-height:1.65;background:#fff;}
-  header{background:var(--green);color:#fff;padding:28px 20px;}
-  .wrap{max-width:820px;margin:0 auto;}
-  header a{color:var(--accent);text-decoration:none;font-size:14px;}
-  h1{margin:.3em 0 0;font-size:26px;}
-  main{max-width:820px;margin:0 auto;padding:32px 20px 64px;}
-  h2{color:var(--green);margin-top:2em;font-size:20px;border-bottom:2px solid #eee;padding-bottom:6px;}
-  h3{font-size:14px;text-transform:uppercase;letter-spacing:.04em;color:#555;margin-top:1.6em;}
-  a{color:#0a6b4a;}
-  .updated{font-size:13px;color:#666;}
-  table{border-collapse:collapse;width:100%;margin:1em 0;font-size:14px;}
-  td,th{border:1px solid #ddd;padding:8px 10px;text-align:left;vertical-align:top;}
-  th{background:#f4f7f5;}
-  footer{border-top:1px solid #eee;padding:24px 20px;text-align:center;font-size:13px;color:#888;}
-  hr{margin:3em 0;border:0;border-top:1px solid #eee;}
+  :root{
+    --forest:#0F3D2E;--green:#1B7F4B;--green-lt:#6BBF8A;--mint:#F5F9F6;--amber:#E8A33D;--paper:#FBFDFC;--shadow:0 6px 24px rgba(15,61,46,.08);
+    --ink:#14201b; --muted:#5f6b72; --accent:#0f6b4f; --accent-bg:#eaf2ee;
+    --rule:#dfe5e2; --bg:#ffffff; --warn-bg:#fff6e5; --warn-ink:#7a5200; --warn-rule:#e8c37a;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font:400 17px/1.65 'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  header{background:var(--forest)}
+  .top{padding:16px 20px;max-width:760px;margin:0 auto}
+  .brand{font-family:'Sora',sans-serif;font-weight:800;font-size:18px;color:#fff;text-decoration:none}
+  .brand span{color:var(--green-lt)}
+  h1,h2,h3{font-family:'Sora',sans-serif}
+  .wrap{max-width:760px; margin:0 auto; padding:48px 24px 96px}
+  .eyebrow{font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin:0 0 20px}
+  h1{font-size:34px; line-height:1.2; margin:0 0 10px; letter-spacing:-.01em}
+  .sub{font-size:19px; color:var(--muted); margin:0 0 22px}
+  .meta{font-size:14px; color:var(--muted); padding-top:16px; border-top:3px solid var(--accent); margin:0 0 8px}
+  .langs{font-size:14px; margin:0 0 36px}
+  .langs a{color:var(--accent)}
+  h2{font-size:21px; margin:44px 0 6px; padding-bottom:8px; border-bottom:1px solid var(--rule); letter-spacing:-.005em}
+  h3{font-size:17px; margin:26px 0 4px}
+  p{margin:0 0 14px}
+  ul{margin:0 0 16px; padding-left:22px}
+  li{margin:0 0 8px}
+  a{color:var(--accent)}
+  strong{font-weight:650}
+  .lead{font-size:18px}
+  .box{background:var(--accent-bg); border-left:5px solid var(--accent); padding:20px 22px; margin:22px 0; border-radius:0 6px 6px 0}
+  .box p:last-child{margin-bottom:0}
+  .box .label{font-size:12px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); margin:0 0 8px}
+  .todo{background:var(--warn-bg); border:1px dashed var(--warn-rule); color:var(--warn-ink); padding:2px 8px; border-radius:4px; font-weight:650; font-size:15px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  table{border-collapse:collapse; width:100%; margin:18px 0; font-size:15.5px}
+  th,td{text-align:left; padding:10px 12px; border-bottom:1px solid var(--rule); vertical-align:top}
+  th{background:var(--accent); color:#fff; font-size:13.5px; letter-spacing:.02em}
+  tbody tr:nth-child(odd){background:#f7faf8}
+  footer.legal{margin-top:64px; padding-top:20px; border-top:1px solid var(--rule); font-size:14px; color:var(--muted)}
+  footer.legal .links{margin-top:8px}
+  footer.legal .links a{color:var(--accent); margin-right:14px}
+  @media (max-width:620px){ h1{font-size:28px} .wrap{padding:32px 18px 72px} }
 </style>
 </head>
 <body>
-<header><div class="wrap"><a href="/">&larr; Fin-Delivery</a><h1>Tietosuoja- ja evästekäytäntö<br><span style="font-weight:400;font-size:18px;opacity:.85;">Privacy &amp; Cookie Policy</span></h1></div></header>
-<main>
-<p class="updated">Päivitetty / Last updated: 29.7.2026</p>
+<header><div class="top"><a class="brand" href="/">Fin<span>-Delivery</span></a></div></header>
+<div class="wrap">
 
-<h2>Suomeksi</h2>
+  <p class="eyebrow">Fin Delivery</p>
+  <h1>Tietosuojaseloste</h1>
+  <p class="sub">Mitä keräämme sinusta asiakkaana, miksi, ja kuinka kauan säilytämme sen.</p>
+  <p class="meta">Voimassa 7.8.2026 alkaen · Koskee Fin Delivery -sovellusta ja verkkosivustoa</p>
+  <p class="langs"><strong>Suomi</strong> · <a href="/privacy/en/">English</a> · <a href="/privacy-courier/">Kuriirisovelluksen seloste</a></p>
 
-<h3>Rekisterinpitäjä</h3>
-<p>Fin Delivery Oy (Y-tunnus 3584658-3)<br>
-c/o Jorma Rautanen, Nöykkiönlaaksontie 42, 02330 Espoo, Suomi<br>
-Puhelin: 040 352 9900<br>
-Sähköposti: <a href="mailto:jorma@fin-delivery.com">jorma@fin-delivery.com</a></p>
+  <p class="lead">Tämä seloste kertoo tavallisella kielellä, mitä tietoja käsittelemme, kun tilaat ruokaa Fin Deliveryn kautta. Jos jokin kohta jää epäselväksi, kysy — vastaamme.</p>
 
-<h3>Mitä tietoja keräämme</h3>
-<p>Käytämme Google Analytics 4 -palvelua verkkosivuston kävijätilastointiin. Keräämme tietoja vain, jos annat siihen suostumuksen evästebannerissa. Kerättäviä tietoja voivat olla: katsotut sivut, likimääräinen sijainti (kaupunkitaso, ei tarkkaa osoitetta), laite- ja selaintiedot, liikenteen lähde sekä käynnin kesto. Emme kerää nimeä, sähköpostia tai muita suoraan tunnistavia tietoja analytiikan kautta. Käytämme myös Meta Pixeliä. Se ladataan vasta suostumuksen jälkeen, ei koskaan ennen sitä.</p>
+  <div class="box">
+    <p class="label">Lyhyesti</p>
+    <p>Käytämme sijaintiasi <strong>vain kun sovellus on auki</strong>: toimitusosoitteen asettamiseen, lähellä olevien ravintoloiden näyttämiseen ja toimituksen seuraamiseen kartalla. <strong>Sovellus ei pysty keräämään sijaintia taustalla</strong> — se on estetty sovelluksen asennuspaketissa, ei pelkästään lupauksena. Emme myy tietojasi.</p>
+  </div>
 
-<h3>Odotuslistan sähköposti</h3>
-<p>Jos liityt odotuslistalle etusivun lomakkeella, tallennamme antamasi sähköpostiosoitteen, kielivalintasi sekä suostumuksesi ja sen ajankohdan. Käsittelyn oikeusperuste on suostumuksesi (GDPR 6 art. 1 a). Käytämme osoitetta vain ilmoittaaksemme palvelun avautumisesta emmekä jaa sitä kolmansille osapuolille. Säilytämme tiedon, kunnes palvelu on avattu ja ilmoitus on lähetetty, tai kunnes pyydät tietojesi poistamista — kumpi tapahtuu ensin. Voit peruuttaa suostumuksesi ja pyytää poistamista milloin tahansa lähettämällä viestin osoitteeseen <a href="mailto:jorma@fin-delivery.com">jorma@fin-delivery.com</a>.</p>
-<p>Tallennamme myös tiedon siitä, mistä kampanjasta tai linkistä saavuit sivustolle (esimerkiksi utm-parametrit, mainostunnisteet ja viittaava sivusto), jotta voimme mitata markkinointimme toimivuutta. Sama koskee kumppani- ja kuriirihakemuslomakkeita. Tiedot poistetaan yhdessä sähköpostiosoitteesi tai hakemuksesi kanssa.</p>
+  <h2>1. Rekisterinpitäjä</h2>
+  <p>
+    Fin Delivery Oy<br>
+    Y-tunnus 3584658-3<br>
+    Nöykkiönlaaksontie 42, 02330 Espoo, Suomi
+  </p>
+  <p>Tietosuoja-asioissa: <a href="mailto:info@fin-delivery.com">info@fin-delivery.com</a></p>
+  <p>Emme ole nimenneet tietosuojavastaavaa. Jos nimeämme sellaisen, päivitämme tämän kohdan.</p>
 
-<h3>Evästeet</h3>
-<table>
-<tr><th>Eväste</th><th>Tarkoitus</th><th>Kesto</th></tr>
-<tr><td>_ga, _ga_*</td><td>Google Analytics – kävijöiden erottelu ja tilastointi. Asetetaan vain suostumuksen jälkeen.</td><td>enintään 24 kk</td></tr>
-<tr><td>_fbp</td><td>Meta Pixel, selaimen tunnistaminen mainonnan kohdentamista ja mittausta varten. Asetetaan vain suostumuksen jälkeen.</td><td>90 päivää</td></tr>
-<tr><td>_fbc</td><td>Tallentaa mainosklikkauksen tunnisteen (fbclid). Asetetaan vain suostumuksen jälkeen.</td><td>90 päivää</td></tr>
-<tr><td>fd_consent_v3</td><td>Tallentaa evästevalintasi (hyväksy/hylkää) sekä kävijätilastointi- että mainontaevästeille. Välttämätön toiminnan kannalta.</td><td>selaimessa kunnes tyhjennät</td></tr>
-</table>
+  <h2>2. Mitä tämä seloste kattaa</h2>
+  <p>Tämä seloste koskee <strong>asiakassovellusta ja verkkosivustoamme</strong>. Jos toimit meille kuriirina, sinuun sovelletaan <a href="/privacy-courier/">kuriirisovelluksen tietosuojaselostetta</a> — ne ovat erillisiä rekistereitä emmekä yhdistä niitä keskenään.</p>
+  <p>Seloste ei koske sitä, mitä ravintolat tai maksupalvelun tarjoaja tekevät omilla tiedoillaan omina rekisterinpitäjinään.</p>
 
-<h3>Mainontaevästeet ja Google Ads</h3>
-<p>Kun annat suostumuksesi evästebannerissa, käytämme kerättyä dataa myös mainonnan kohdentamiseen ja mittaamiseen Google Ads -palvelussa — esimerkiksi sen mittaamiseen, johtiko mainos yhteydenottoon tai hakemukseen. Tietojen vastaanottaja on Google (Google Ireland Ltd, Irlanti), joka käsittelee tietoja omien käytäntöjensä mukaisesti.</p>
+  <h2>3. Mitä tietoja keräämme ja miksi</h2>
+  <table>
+    <thead><tr><th>Tietoryhmä</th><th>Esimerkkejä</th><th>Miksi</th></tr></thead>
+    <tbody>
+      <tr><td>Tilitiedot</td><td>Nimi, sähköposti, puhelinnumero, kieliasetus, salasana suojatussa muodossa</td><td>Tilin luominen, kirjautuminen, yhteydenpito</td></tr>
+      <tr><td>Osoitteet</td><td>Tallentamasi toimitusosoitteet, ovikoodit ja toimitusohjeet</td><td>Toimituksen perillepääsy</td></tr>
+      <tr><td>Tilaustiedot</td><td>Tilatut tuotteet, ravintola, ajankohta, hinta, toimituksen tila</td><td>Tilauksen toteuttaminen, asiakastuki, kirjanpito</td></tr>
+      <tr><td>Maksutiedot</td><td>Maksutapahtuman tunniste, maksutavan tyyppi, summa</td><td>Maksun käsittely ja palautukset</td></tr>
+      <tr><td>Sijaintitiedot</td><td>Laitteen sijainti sovelluksen ollessa auki, tilauksen toimitusosoitteen koordinaatit</td><td>Katso luku 4</td></tr>
+      <tr><td>Laitetiedot</td><td>Laitemalli, käyttöjärjestelmän versio, sovelluksen versio, ilmoitustunniste</td><td>Vikatilanteiden selvitys, ilmoitusten toimittaminen</td></tr>
+      <tr><td>Rekisteröitymisen tekniset tiedot</td><td>IP-osoite ja selaintunniste tilin luontihetkellä</td><td>Väärinkäytösten ja tilitehtailun estäminen</td></tr>
+      <tr><td>Markkinoinnin kohdennustiedot</td><td>Mistä mainoksesta tai kampanjasta saavuit sovellukseen</td><td>Katso luku 8 — vain suostumuksella</td></tr>
+      <tr><td>Yhteydenotot</td><td>Tukiviestit ja arviot</td><td>Tuen antaminen, palvelun laatu</td></tr>
+    </tbody>
+  </table>
+  <p>Emme kerää erityisiin henkilötietoryhmiin kuuluvia tietoja (terveys, vakaumus tai vastaavat) emmekä pyydä niitä. Emme tallenna korttinumeroasi — sen käsittelee maksupalvelun tarjoaja.</p>
 
-<h3>Käsittelyn peruste ja tarkoitus</h3>
-<p>Käsittelyn oikeusperuste on suostumuksesi (GDPR 6 art. 1 a). Käytämme tietoja verkkosivuston toiminnan ja käyttökokemuksen parantamiseen. Mittauskomentosarja (Google-tunniste) ladataan sivun mukana oletuksena, mutta se ei tallenna tai lähetä tietoja ennen kuin annat suostumuksesi evästebannerissa (Consent Mode v2) — suostumuksesi ohjaa tietojen tallennusta, ei komentosarjan lataamista.</p>
+  <h2>4. Sijaintitiedot</h2>
 
-<h3>Tietojen säilytys</h3>
-<p>Google Analyticsin käyttäjätason tiedot säilytetään enintään 14 kuukautta, minkä jälkeen ne poistetaan automaattisesti.</p>
+  <h3>4.1 Mihin sijaintia käytetään</h3>
+  <ul>
+    <li><strong>Toimitusosoitteen asettamiseen</strong>, jos haluat käyttää nykyistä sijaintiasi kirjoittamisen sijaan.</li>
+    <li><strong>Lähellä olevien ravintoloiden näyttämiseen.</strong></li>
+    <li><strong>Toimituksen seuraamiseen</strong> kartalla, kun tilauksesi on matkalla.</li>
+  </ul>
 
-<h3>Tietojen jakaminen</h3>
-<p>Analytiikkatietoja käsittelee puolestamme Google (Google Ireland Ltd, Irlanti). Googlen tietosuojakäytäntö: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>. Lisäksi käsittelijänä toimii Meta Platforms Ireland Ltd, Irlanti, joka käyttää tietoja mainonnan kohdentamiseen ja mittaukseen. Metan tietosuojakäytäntö: <a href="https://www.facebook.com/privacy/policy" target="_blank" rel="noopener">facebook.com/privacy/policy</a>. Emme myy tietojasi kolmansille osapuolille.</p>
+  <h3>4.2 Mitä emme tee</h3>
+  <p>Sovellus <strong>ei kerää sijaintiasi taustalla</strong>. Tämä ei ole pelkkä lupaus: taustasijainnin lupa on <strong>estetty sovelluksen asennuspaketissa</strong>, joten käyttöjärjestelmä ei anna sovellukselle sitä oikeutta lainkaan, vaikka joku pyytäisi.</p>
+  <p>Emme siis seuraa liikkeitäsi tilausten välillä, emme kerää sijaintihistoriaa emmekä muodosta sinusta liikkumisprofiilia.</p>
 
-<h3>Oikeutesi</h3>
-<p>Sinulla on oikeus saada pääsy tietoihisi, oikaista tai poistaa ne, vastustaa tai rajoittaa käsittelyä sekä peruuttaa suostumuksesi milloin tahansa. Voit peruuttaa suostumuksen tyhjentämällä selaimen evästeet, jolloin banneri ilmestyy uudelleen. Sinulla on myös oikeus tehdä valitus valvontaviranomaiselle: Tietosuojavaltuutetun toimisto (<a href="https://tietosuoja.fi" target="_blank" rel="noopener">tietosuoja.fi</a>).</p>
+  <h3>4.3 Mitä sijainnista jää talteen</h3>
+  <p>Emme säilytä jatkuvaa sijaintijälkeä. Talteen jää vain kaksi asiaa:</p>
+  <ul>
+    <li><strong>Tallentamasi osoitteet</strong> — niin kauan kuin pidät ne tallessa. Voit poistaa ne itse sovelluksesta.</li>
+    <li><strong>Tilauksen toimituskoordinaatit</strong> osana tilaustietoa — koska tilaus on tehtävä johonkin, ja tieto tarvitaan reklamaatioita ja kirjanpitoa varten.</li>
+  </ul>
+  <p>Voit peruuttaa sijaintiluvan milloin tahansa laitteesi asetuksista. Sovellus toimii ilman sitä; joudut vain kirjoittamaan osoitteen käsin.</p>
 
-<hr>
+  <h2>5. Käsittelyn oikeusperusteet</h2>
+  <table>
+    <thead><tr><th>Käsittely</th><th>Oikeusperuste (yleinen tietosuoja-asetus)</th></tr></thead>
+    <tbody>
+      <tr><td>Tilin ylläpito, tilausten toimittaminen, maksut</td><td>6(1)(b) — sopimuksen täytäntöönpano</td></tr>
+      <tr><td>Kirjanpito ja verotukseen liittyvät tiedot</td><td>6(1)(c) — lakisääteinen velvoite</td></tr>
+      <tr><td>Väärinkäytösten estäminen ja palvelun turvallisuus</td><td>6(1)(f) — oikeutettu etu</td></tr>
+      <tr><td>Analytiikka, markkinoinnin kohdennus ja mainonnan mittaus</td><td>6(1)(a) — suostumus, jonka voit peruuttaa</td></tr>
+      <tr><td>Sijainnin käyttö sovelluksen ollessa auki</td><td>6(1)(b) yhdessä laitteen sijaintiluvan kanssa</td></tr>
+    </tbody>
+  </table>
 
-<h2>In English</h2>
+  <h2>6. Kenelle tietoja luovutetaan</h2>
+  <ul>
+    <li><strong>Ravintola</strong>, jolta tilaat, saa tilauksen sisällön ja etunimesi. Se ei saa osoitettasi eikä puhelinnumeroasi.</li>
+    <li><strong>Kuriiri</strong> saa toimitusosoitteen, toimitusohjeet ja etunimesi toimituksen ajaksi. Toimituksen jälkeen osoite ei jää kuriirin nähtäville.</li>
+    <li><strong>Stripe</strong> maksujen käsittelyä ja palautuksia varten. Korttitietosi menevät suoraan Stripelle — me emme näe emmekä tallenna niitä.</li>
+    <li><strong>Google (Firebase)</strong> ilmoitusten toimittamiseen ja teknisten virheiden seurantaan.</li>
+    <li><strong>AppsFlyer</strong> markkinoinnin kohdennuksen mittaamiseen — <strong>vain jos annat siihen suostumuksen</strong>, katso luku 8.</li>
+    <li><strong>Amazon Web Services (Lightsail)</strong> palvelinten ylläpitoon. Palvelimet sijaitsevat <strong>Tukholmassa, Ruotsissa</strong> (alue eu-north-1) eli EU:n alueella.</li>
+    <li><strong>Viranomaiset</strong>, jos laki sitä edellyttää.</li>
+  </ul>
+  <p>Emme myy henkilötietojasi. Emme luovuta niitä mainosverkostoille tietojen myymistä varten.</p>
 
-<h3>Data controller</h3>
-<p>Fin Delivery Oy (Business ID 3584658-3)<br>
-c/o Jorma Rautanen, Nöykkiönlaaksontie 42, 02330 Espoo, Finland<br>
-Phone: +358 40 352 9900<br>
-Email: <a href="mailto:jorma@fin-delivery.com">jorma@fin-delivery.com</a></p>
+  <h2>7. Siirrot EU:n ja ETA:n ulkopuolelle</h2>
+  <p><strong>Tietokantamme ja palvelimemme sijaitsevat EU:n alueella</strong>, Amazon Web Servicesin Tukholman alueella (eu-north-1). Tilaustesi, osoitteidesi ja tilitietojesi osalta siirtoa EU:n ulkopuolelle ei tapahdu.</p>
+  <p>Osa käyttämistämme palveluista on yhdysvaltalaisia yhtiöitä: Stripe (maksut), Google (ilmoitukset ja virheseuranta) ja AppsFlyer (markkinoinnin mittaus, vain suostumuksella). Näiden osalta mahdollinen siirto perustuu joko Euroopan komission riittävyyspäätökseen (EU–US Data Privacy Framework) tai komission vahvistamiin vakiolausekkeisiin.</p>
 
-<h3>What data we collect</h3>
-<p>We use Google Analytics 4 for website visitor statistics. We only collect data if you give consent via the cookie banner. Data collected may include: pages viewed, approximate location (city level, not a precise address), device and browser information, traffic source, and visit duration. We do not collect your name, email, or other directly identifying information through analytics. We also use Meta Pixel. It loads only after consent, never before.</p>
+  <h2>8. Analytiikka, mainonta ja suostumus</h2>
+  <p>Käytämme AppsFlyer-nimistä palvelua mitataksemme, mistä mainoksesta tai kampanjasta käyttäjä on tullut sovellukseen. Tämä auttaa meitä kohdentamaan markkinointia järkevämmin.</p>
+  <div class="box">
+    <p class="label">Suostumus ensin</p>
+    <p>Mittaus <strong>ei käynnisty ennen kuin olet antanut siihen suostumuksen</strong>. Jos et anna sitä, sovellus toimii täysin normaalisti — vain mainonnan mittaus jää pois. Voit peruuttaa suostumuksen milloin tahansa sovelluksen asetuksista.</p>
+  </div>
+  <p>Emme käytä sijaintitietojasi mainonnan kohdentamiseen.</p>
 
-<h3>Waiting-list email</h3>
-<p>If you join the waiting list via the homepage form, we store the email address you provide, your language choice, and your consent together with its timestamp. The legal basis for processing is your consent (GDPR Art. 6(1)(a)). We use the address only to notify you when the service launches and do not share it with third parties. We keep it until the service has launched and the notification has been sent, or until you ask us to delete it — whichever comes first. You can withdraw consent and request deletion at any time by emailing <a href="mailto:jorma@fin-delivery.com">jorma@fin-delivery.com</a>.</p>
-<p>We also store which campaign or link brought you to the site (for example utm parameters, ad click identifiers and the referring website) so that we can measure how well our marketing works. The same applies to the partner and courier application forms. This information is deleted together with your email address or your application.</p>
+  <h2>9. Säilytysajat</h2>
+  <table>
+    <thead><tr><th>Tieto</th><th>Säilytysaika</th></tr></thead>
+    <tbody>
+      <tr><td>Tili ja perustiedot</td><td>Kunnes poistat tilisi, katso luku 10</td></tr>
+      <tr><td>Tallennetut osoitteet</td><td>Kunnes poistat ne itse tai poistat tilisi</td></tr>
+      <tr><td>Tilaushistoria ja toimituskoordinaatit</td><td>Osana kirjanpitoaineistoa, katso alla</td></tr>
+      <tr><td>Kirjanpitoaineisto ja tositteet</td><td>Kirjanpitolain (1336/1997) mukaisesti: tositteet 6 vuotta, kirjanpitokirjat ja tilinpäätös 10 vuotta</td></tr>
+      <tr><td>Tukiviestit</td><td>2 vuotta</td></tr>
+      <tr><td>Rekisteröitymisen IP ja selaintunniste</td><td>12 kuukautta</td></tr>
+      <tr><td>Markkinoinnin kohdennustiedot</td><td>Suostumuksen voimassaolon ajan</td></tr>
+    </tbody>
+  </table>
+  <p>Kirjanpitolain vaatimia tietoja emme voi poistaa pyynnöstäsi ennen määräajan päättymistä. Ne pseudonymisoidaan, kun tilisi poistetaan — eli ne eivät enää yhdisty sinuun nimellä.</p>
 
-<h3>Cookies</h3>
-<table>
-<tr><th>Cookie</th><th>Purpose</th><th>Duration</th></tr>
-<tr><td>_ga, _ga_*</td><td>Google Analytics – distinguishing visitors and statistics. Set only after consent.</td><td>up to 24 months</td></tr>
-<tr><td>_fbp</td><td>Meta Pixel, browser identification for advertising targeting and measurement. Set only after consent.</td><td>90 days</td></tr>
-<tr><td>_fbc</td><td>Stores the ad click identifier (fbclid). Set only after consent.</td><td>90 days</td></tr>
-<tr><td>fd_consent_v3</td><td>Stores your cookie choice (accept/decline) for both analytics and advertising cookies. Necessary.</td><td>in your browser until cleared</td></tr>
-</table>
+  <h2>10. Tilin poistaminen</h2>
+  <p>Voit poistaa tilisi <strong>suoraan sovelluksesta</strong> (Asetukset → Tili → Poista tili) tai <a href="/delete-account/">verkkosivulla</a>. Voit myös lähettää pyynnön osoitteeseen <a href="mailto:info@fin-delivery.com">info@fin-delivery.com</a>.</p>
+  <p>Kun pyyntö on tehty, tili <strong>lukitaan heti</strong> etkä voi enää tehdä tilauksia. Henkilötiedot — profiili, yhteystiedot, tallennetut osoitteet, ilmoitustunnisteet — poistetaan <strong>30 päivän kuluttua</strong>. Voit peruuttaa pyynnön tämän ajan sisällä kirjautumalla takaisin sisään.</p>
+  <p>Poiston jälkeen jäljelle jäävät ainoastaan kirjanpitolain edellyttämät tositteet ja maksutapahtumat, joista tunnistetiedot on korvattu pseudonyymillä.</p>
+  <p>Emme voi käsitellä poistopyyntöä, jos sinulla on kesken oleva tilaus tai selvittämätön maksuriita. Kerromme siitä silloin selkeästi.</p>
 
-<h3>Advertising cookies and Google Ads</h3>
-<p>When you give consent via the cookie banner, we also use the collected data for advertising targeting and measurement in Google Ads — for example, to measure whether an ad led to a contact or an application. The recipient of this data is Google (Google Ireland Ltd, Ireland), which processes it under its own policies.</p>
+  <h2>11. Oikeutesi</h2>
+  <ul>
+    <li>Oikeus saada pääsy tietoihin, joita sinusta on.</li>
+    <li>Oikeus oikaista virheelliset tiedot.</li>
+    <li>Oikeus tietojen poistamiseen, siltä osin kuin laki ei velvoita säilyttämään niitä.</li>
+    <li>Oikeus käsittelyn rajoittamiseen ja oikeus vastustaa käsittelyä.</li>
+    <li>Oikeus siirtää tiedot järjestelmästä toiseen.</li>
+    <li>Oikeus peruuttaa suostumus milloin tahansa, siltä osin kuin käsittely perustuu suostumukseen.</li>
+    <li>Oikeus tehdä valitus valvontaviranomaiselle: <a href="https://tietosuoja.fi/">Tietosuojavaltuutetun toimisto</a>.</li>
+  </ul>
+  <p>Vastaamme pyyntöihin kuukauden kuluessa. Jos pyyntö on poikkeuksellisen laaja, ilmoitamme jatkoajasta.</p>
 
-<h3>Legal basis and purpose</h3>
-<p>The legal basis for processing is your consent (GDPR Art. 6(1)(a)). We use the data to improve the website's operation and user experience. The measurement script (Google tag) loads with the page by default, but it does not store or send data until you give consent via the cookie banner (Consent Mode v2) — your consent controls data storage, not script loading.</p>
+  <h2>12. Ikäraja</h2>
+  <p>Palvelu on tarkoitettu <strong>18 vuotta täyttäneille</strong>. Emme tietoisesti kerää tietoja tätä nuoremmilta. Jos huomaamme, että tili on luotu ikärajaa nuoremmalta, poistamme sen.</p>
+  <p>Jos olet huoltaja ja epäilet, että lapsesi on luonut tilin, ota yhteyttä osoitteeseen <a href="mailto:info@fin-delivery.com">info@fin-delivery.com</a>.</p>
 
-<h3>Data retention</h3>
-<p>Google Analytics user-level data is retained for a maximum of 14 months, after which it is automatically deleted.</p>
+  <h2>13. Tietoturva</h2>
+  <p>Yhteydet sovelluksen ja palvelimen välillä on salattu. Salasanoja ei säilytetä selkokielisenä. Pääsy asiakastietoihin on rajattu niihin henkilöihin, jotka tarvitsevat sitä työtehtävässään.</p>
+  <p>Jos tapahtuu tietoturvaloukkaus, joka todennäköisesti aiheuttaa korkean riskin oikeuksillesi, ilmoitamme siitä sinulle ja valvontaviranomaiselle lain edellyttämässä ajassa.</p>
 
-<h3>Data sharing</h3>
-<p>Analytics data is processed on our behalf by Google (Google Ireland Ltd, Ireland). Google's privacy policy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>. Data is also processed by Meta Platforms Ireland Ltd, Ireland, which uses it for advertising targeting and measurement. Meta's privacy policy: <a href="https://www.facebook.com/privacy/policy" target="_blank" rel="noopener">facebook.com/privacy/policy</a>. We do not sell your data to third parties.</p>
+  <h2>14. Muutokset tähän selosteeseen</h2>
+  <p>Jos muutamme selostetta olennaisesti, ilmoitamme siitä sovelluksessa ennen muutoksen voimaantuloa. Aiemmat versiot ovat saatavilla pyynnöstä.</p>
 
-<h3>Your rights</h3>
-<p>You have the right to access, rectify or erase your data, to object to or restrict processing, and to withdraw your consent at any time. You can withdraw consent by clearing your browser cookies, which brings the banner back. You also have the right to lodge a complaint with the supervisory authority: Office of the Data Protection Ombudsman, Finland (<a href="https://tietosuoja.fi" target="_blank" rel="noopener">tietosuoja.fi</a>).</p>
+  <h2>15. Yhteystiedot</h2>
+  <p>
+    Fin Delivery Oy · Y-tunnus 3584658-3<br>
+    Nöykkiönlaaksontie 42, 02330 Espoo, Suomi<br>
+    <a href="mailto:info@fin-delivery.com">info@fin-delivery.com</a>
+  </p>
 
-</main>
-<footer>&copy; 2026 Fin Delivery Oy · Y-tunnus 3584658-3 · Nöykkiönlaaksontie 42, 02330 Espoo, Finland</footer>
+  <footer class="legal">
+    Fin Delivery Oy · Y-tunnus 3584658-3 · Nöykkiönlaaksontie 42, 02330 Espoo · Päivitetty 7.8.2026
+    <div class="links"><a href="/privacy/">Tietosuojaseloste</a> · <a href="/terms/">Käyttöehdot</a> · <a href="/privacy-courier/">Kuriirien tietosuojaseloste</a></div>
+  </footer>
+
+</div>
 </body>
 </html>

@@ -119,6 +119,8 @@
   .need li:last-child{border-bottom:0}
   .need li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700}
   .ctaband{text-align:center;padding:30px 0 8px}
+  .privacylink{margin-top:14px;font-size:13px}
+  .privacylink a{color:var(--green)}
   footer{color:#7a8a80;font-size:12px;text-align:center;padding:26px 20px}
 </style>
 </head>
@@ -177,6 +179,7 @@
 
     <div class="ctaband">
       <a class="cta green" href="hakemus/" data-i="cta2">Ryhdy lähetiksi →</a>
+      <p class="privacylink"><a href="/privacy-courier/" data-i="privacylink">Lue kuriirien tietosuojaseloste →</a></p>
     </div>
 
   </div>
@@ -189,11 +192,13 @@
     fi:{chip:'Helsinki · avataan pian',h1:'Ryhdy lähetiksi ja ansaitse enemmän',hsub:'Meidän kautta saat mitä todennäköisimmin suuremman tunti- ja kokonaispalkkion. Toimit omana yrittäjänä, valitset omat vuorosi etkä ole sidottu yhteen sovellukseen.',cta:'Ryhdy lähetiksi →',cta2:'Ryhdy lähetiksi →',
       why_h:'Miksi meidän kautta',w1t:'Parempi palkka',w1p:'Rakenteemme — perusmaksu + etäisyys + niputus — tähtää selvästi korkeampaan todelliseen tuntipalkkaan kuin kilpailijoilla.',w2t:'Sinä päätät',w2p:'Valitset omat vuorosi. Reitti on suositus, ei pakko — ja voit toimia myös muissa sovelluksissa.',w3t:'Oma yrittäjyys',w3p:'Toimit aitona yrittäjänä (kevytyrittäjä tai Y-tunnus). Läpinäkyvä sopimus, ei piilokuluja.',
       how_h:'Näin se toimii',st1t:'Täytä hakemus',st1p:'Täytä lyhyt hakemus ja lataa tarvittavat asiakirjat.',st2t:'Käsittelemme henkilökohtaisesti',st2p:'Tarkistamme hakemuksesi ja asiakirjasi — oikea ihminen, ei pelkkä automaatti.',st3t:'Saat sopimusehdotuksen',st3p:'Otamme sinuun yhteyttä sähköpostitse.',hl:'Lähetämme sinulle sähköpostitse sopimusehdotuksen, josta ilmenevät selkeästi komissiomäärät, käytännön ohjeet sekä yhteistyön rakenne ja säännöt, jotta voit ymmärtää ja maksimoida voittosi.',st4t:'Aloitat ajamisen',st4p:'Hyväksynnän jälkeen saat kirjautumistiedot sähköpostitse ja pääset heti aloittamaan.',
-      need_h:'Mitä tarvitset',n1:'Henkilöllisyystodistus (ID-kortti tai passi)',n2:'Oikeus työskennellä Suomessa',n3:'Kevytyrittäjän Y-tunnus tai verokortti',n4:'Kulkuväline (pyörä, skootteri tai auto — moottoriajoneuvolla ajokortti + vakuutus)',n5:'Pankkitili maksuja varten'},
+      need_h:'Mitä tarvitset',n1:'Henkilöllisyystodistus (ID-kortti tai passi)',n2:'Oikeus työskennellä Suomessa',n3:'Kevytyrittäjän Y-tunnus tai verokortti',n4:'Kulkuväline (pyörä, skootteri tai auto — moottoriajoneuvolla ajokortti + vakuutus)',n5:'Pankkitili maksuja varten',
+      privacylink:'Lue kuriirien tietosuojaseloste →'},
     en:{chip:'Helsinki · opening soon',h1:'Become a courier and earn more',hsub:'Through us you will most likely get a higher hourly and total pay. You operate as your own entrepreneur, choose your own shifts and are not tied to a single app.',cta:'Become a courier →',cta2:'Become a courier →',
       why_h:'Why with us',w1t:'Better pay',w1p:'Our structure — base fee + distance + batching — aims for a clearly higher real hourly pay than competitors.',w2t:'You decide',w2p:'You choose your own shifts. The route is a suggestion, not an order — and you can work in other apps too.',w3t:'Your own business',w3p:'You operate as a genuine entrepreneur (light entrepreneur or Y-tunnus). A transparent contract, no hidden fees.',
       how_h:'How it works',st1t:'Fill in the application',st1p:'Complete a short application and upload the required documents.',st2t:'We review it personally',st2p:'We check your application and documents — a real person, not just an automated system.',st3t:'You get a contract proposal',st3p:'We contact you by email.',hl:'We will email you a contract proposal that clearly sets out the commission rates, practical instructions, and the structure and rules of the cooperation, so you can understand and maximise your earnings.',st4t:'You start driving',st4p:'After approval you receive your login details by email and can start right away.',
-      need_h:'What you need',n1:'Proof of identity (ID card or passport)',n2:'The right to work in Finland',n3:'Light-entrepreneur Y-tunnus or a tax card',n4:'A vehicle (bike, scooter or car — for a motor vehicle, driving licence + insurance)',n5:'A bank account for payouts'}
+      need_h:'What you need',n1:'Proof of identity (ID card or passport)',n2:'The right to work in Finland',n3:'Light-entrepreneur Y-tunnus or a tax card',n4:'A vehicle (bike, scooter or car — for a motor vehicle, driving licence + insurance)',n5:'A bank account for payouts',
+      privacylink:'Read the courier privacy notice →'}
   };
   let lang='fi';
   function setLang(l){lang=l;document.documentElement.lang=l;
