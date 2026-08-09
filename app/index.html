@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="fi"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fin Delivery — ravintolaruoka kotiin Helsingissä</title>
+<meta name="description" content="Matalampi kuljetusmaksu asiakkaalle, pienempi komissio ravintolalle, parempi palkkio lähetille. Kokeile ja hämmästy kuljetusmaksuistamme.">
+<link rel="canonical" href="https://www.fin-delivery.com/app/">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fi_FI">
+<meta property="og:site_name" content="Fin Delivery">
+<meta property="og:url" content="https://www.fin-delivery.com/app/">
+<meta property="og:title" content="Kokeile ja hämmästy kuljetusmaksuistamme">
+<meta property="og:description" content="Ravintolaruoka kotiin Helsingissä — matalammalla kuljetusmaksulla. Sama ruoka, sama matka, pienempi loppusumma.">
+<meta property="og:image" content="https://www.fin-delivery.com/og-image-fi.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<meta name="facebook-domain-verification" content="1jwlfywwpd5x9ediolygnsv4whx37j" />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3GVPY8GN3C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  function fdGrantAll(){
+    gtag('consent','update',{
+      'ad_storage'         : 'granted',
+      'ad_user_data'       : 'granted',
+      'ad_personalization' : 'granted',
+      'analytics_storage'  : 'granted'
+    });
+  }
+  function fdInitPixel(){
+    if (window.__fdPixel) return;
+    window.__fdPixel = true;
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+    (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','1355278872791856');
+    fbq('track','PageView');
+  }
+  function fdRunAttr(){
+    var KEY='fd_attr', TTL=90*864e5;
+    var FIELDS=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid','fbclid','referrer','landing_path'];
+    var REAL=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid','fbclid'];
+    function shape(o){var r={},i;for(i=0;i<FIELDS.length;i++){r[FIELDS[i]]=(o&&o[FIELDS[i]])||null;}return r;}
+    function hasReal(o){ return !!o && REAL.some(function(k){ return o[k]; }); }
+    try{
+      if(localStorage.getItem('fd_consent_v3')!=='granted'){ window.FD_ATTR=shape(null); return; }
+      var q=new URLSearchParams(location.search);
+      var pick=function(k){var v=q.get(k);return v?v.slice(0,255):null;};
+      var fresh={
+        utm_source:pick('utm_source'), utm_medium:pick('utm_medium'),
+        utm_campaign:pick('utm_campaign'), utm_content:pick('utm_content'),
+        utm_term:pick('utm_term'), gclid:pick('gclid'), fbclid:pick('fbclid'),
+        referrer:(document.referrer||'').slice(0,255)||null,
+        landing_path:(location.pathname+location.search).slice(0,255)||null
+      };
+      var saved=null;
+      try{saved=JSON.parse(localStorage.getItem(KEY)||'null');}catch(e){saved=null;}
+      if(saved&&(!saved.exp||Date.now()>saved.exp)){saved=null;try{localStorage.removeItem(KEY);}catch(e){}}
+      if(hasReal(fresh)&&!hasReal(saved)){        // real source, and nothing real stored yet — an empty record may be overwritten
+        fresh.exp=Date.now()+TTL;
+        try{localStorage.setItem(KEY,JSON.stringify(fresh));}catch(e){}
+        window.FD_ATTR=shape(fresh); return;
+      }
+      if(hasReal(saved)){ window.FD_ATTR=shape(saved); return; }    // first touch wins — never overwrite a real source
+      try{localStorage.removeItem(KEY);}catch(e){}                   // no real source anywhere — never create or keep an empty record
+      window.FD_ATTR=shape(fresh);
+    }catch(e){ window.FD_ATTR=shape(null); }
+  }
+  fdRunAttr();
+  // Consent Mode v2 — kaikki evätty kunnes käyttäjä hyväksyy
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'analytics_storage': 'denied',
+    'wait_for_update': 500
+  });
+  (function(){ try { if (localStorage.getItem('fd_consent_v3') === 'granted') { fdGrantAll(); fdInitPixel(); fdRunAttr(); } localStorage.removeItem('fd_consent'); localStorage.removeItem('fd_consent_v2'); } catch(e){} })();
+
+  gtag('js', new Date());
+  gtag('config', 'G-3GVPY8GN3C');
+</script>
+
+<style>
+:root{
+  --g900:#0B2E22; --g800:#0F3D2E; --g600:#1B7F4B; --g400:#2EA44F;
+  --gold:#E8A33D; --cream:#FBF8F1; --ink:#12261F; --mut:#5C6F66; --line:#E3E8E4;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);
+  font:400 17px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* ---------- nav ---------- */
+nav{position:sticky;top:0;z-index:50;background:rgba(251,248,241,.92);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:10px;font:600 18px/1 inherit;color:var(--g800);letter-spacing:-.01em}
+.logo .mark{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,var(--g800),var(--g600));
+  display:grid;place-items:center;color:var(--gold);font:700 17px/1 Georgia,serif}
+nav a.cta{font-size:15px;font-weight:600;color:#fff;background:var(--g800);
+  padding:9px 18px;border-radius:999px;text-decoration:none}
+
+/* ---------- hero ---------- */
+header{position:relative;overflow:hidden;
+  background:linear-gradient(160deg,var(--g900) 0%,var(--g800) 45%,var(--g600) 100%);color:#fff}
+header::after{content:"";position:absolute;inset:auto -10% -55% -10%;height:70%;
+  background:radial-gradient(ellipse at 50% 0%,rgba(232,163,61,.20),transparent 65%)}
+header .wrap{position:relative;z-index:1;padding:76px 24px 84px;text-align:center}
+.eyebrow{display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--gold);border:1px solid rgba(232,163,61,.4);
+  padding:6px 14px;border-radius:999px;margin-bottom:26px}
+h1{font:700 clamp(34px,6vw,58px)/1.08 inherit;letter-spacing:-.025em;max-width:16ch;margin:0 auto}
+h1 em{font-style:normal;color:var(--gold)}
+.sub{margin:22px auto 0;max-width:46ch;font-size:clamp(17px,2.4vw,20px);color:#CFE3D8}
+
+/* ---------- store buttons ---------- */
+.stores{margin-top:36px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.store{display:inline-flex;align-items:center;gap:11px;background:#fff;color:var(--ink);
+  text-decoration:none;padding:12px 22px;border-radius:14px;min-width:210px;
+  box-shadow:0 10px 30px rgba(0,0,0,.18);transition:transform .15s}
+.store:hover{transform:translateY(-2px)}
+.store svg{width:26px;height:26px;flex:none}
+.store span{display:block;text-align:left;line-height:1.15}
+.store small{display:block;font-size:11px;color:var(--mut);letter-spacing:.02em}
+.store b{display:block;font-size:16px;font-weight:600}
+.store.dim{opacity:.42;transform:scale(.94)}
+.note{margin-top:16px;font-size:13.5px;color:#A9C6B6}
+
+/* waitlist (pre-launch) */
+.wait{margin:32px auto 0;max-width:440px;display:flex;gap:10px}
+.wait input{flex:1;border:0;border-radius:12px;padding:14px 16px;font-size:16px}
+.wait button{border:0;border-radius:12px;padding:14px 20px;font-size:16px;font-weight:600;
+  background:var(--gold);color:var(--g900);cursor:pointer}
+
+/* ---------- sections ---------- */
+section{padding:78px 0}
+.kicker{font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--g600);text-align:center}
+h2{font:700 clamp(27px,4vw,40px)/1.15 inherit;letter-spacing:-.02em;text-align:center;
+  margin:12px auto 0;max-width:20ch}
+.lead{text-align:center;color:var(--mut);max-width:52ch;margin:16px auto 0;font-size:17.5px}
+
+.three{display:grid;gap:20px;grid-template-columns:repeat(3,1fr);margin-top:48px}
+@media(max-width:820px){.three{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px 26px;
+  box-shadow:0 1px 2px rgba(15,61,46,.04)}
+.card .ico{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;
+  background:#EAF4EE;color:var(--g600);margin-bottom:18px}
+.card .ico svg{width:24px;height:24px}
+.card h3{font:600 19px/1.3 inherit;margin-bottom:8px}
+.card p{color:var(--mut);font-size:16px}
+.card .big{font:700 30px/1 inherit;color:var(--g800);letter-spacing:-.02em;margin-bottom:6px}
+
+.steps{counter-reset:s;max-width:680px;margin:44px auto 0}
+.step{display:flex;gap:20px;padding:22px 0;border-bottom:1px solid var(--line)}
+.step:last-child{border:0}
+.step::before{counter-increment:s;content:counter(s);flex:none;width:38px;height:38px;
+  border-radius:50%;background:var(--g800);color:var(--gold);display:grid;place-items:center;
+  font:700 16px/1 inherit}
+.step h3{font:600 18px/1.35 inherit;margin-bottom:4px}
+.step p{color:var(--mut);font-size:16px}
+
+.band{background:var(--g800);color:#fff}
+.band .lead{color:#CFE3D8}
+.band h2{color:#fff}
+.band .kicker{color:var(--gold)}
+.quote{max-width:680px;margin:36px auto 0;text-align:center;
+  font:400 clamp(19px,2.6vw,24px)/1.45 Georgia,serif;color:#EAF4EE}
+
+.final{text-align:center}
+.final .stores{margin-top:30px}
+
+footer{background:var(--g900);color:#8FB3A2;font-size:14px;padding:44px 0 52px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer a{color:#8FB3A2;text-decoration:none;margin-right:18px}
+footer a:hover{color:#fff}
+footer .legal{font-size:12.5px;color:#6A907E;margin-top:14px;width:100%}
+
+/* ---------- waitlist consent + status (CC: lisatud, API nõuab consent:true) ---------- */
+.wl2-consent{display:flex;gap:9px;align-items:flex-start;max-width:520px;margin:12px auto 0;
+  text-align:left;font-size:14px;line-height:1.5;color:var(--mut)}
+.wl2-consent input{margin-top:3px;flex:0 0 auto;width:17px;height:17px;accent-color:var(--g600)}
+.wl2-consent a{color:var(--g600)}
+.wl2-reassure{max-width:520px;margin:6px auto 0;padding-left:26px;text-align:left;
+  font-size:13px;line-height:1.5;color:var(--mut)}
+.wl2-reassure a{color:var(--g600)}
+.wl2-msg{max-width:520px;margin:10px auto 0;font-size:14px;min-height:1.2em}
+.wl2-msg.ok{color:var(--g600)}
+.wl2-msg.err{color:#b3261e}
+</style></head>
+<body>
+
+<nav><div class="wrap">
+  <div class="logo"><div class="mark">F</div>Fin Delivery</div>
+  <a class="cta" href="#lataa">Lataa sovellus</a>
+</div></nav>
+
+<header><div class="wrap">
+  <div class="eyebrow">Helsinki</div>
+  <h1>Kokeile ja hämmästy <em>kuljetusmaksuistamme</em></h1>
+  <p class="sub">Ravintolaruoka kotiin — matalammalla kuljetusmaksulla.
+     Sama ruoka, sama matka, pienempi loppusumma.</p>
+
+  <div class="stores" id="stores">
+    <a class="store" id="btn-ios" href="#lataa">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.7 12.9c0-2.2 1.8-3.3 1.9-3.3-1-1.5-2.6-1.7-3.2-1.7-1.4-.1-2.7.8-3.4.8-.7 0-1.8-.8-2.9-.8-1.5 0-2.9.9-3.7 2.2-1.6 2.7-.4 6.8 1.1 9 .7 1.1 1.6 2.3 2.7 2.3 1.1 0 1.5-.7 2.8-.7s1.7.7 2.9.7c1.2 0 1.9-1.1 2.6-2.2.8-1.2 1.2-2.4 1.2-2.5-.1 0-2-.8-2-3.1zM14.5 5.6c.6-.7 1-1.7.9-2.7-.9 0-2 .6-2.6 1.3-.6.6-1.1 1.6-.9 2.6 1 .1 2-.5 2.6-1.2z"/></svg>
+      <span><small>Lataa</small><b>App Store</b></span>
+    </a>
+    <a class="store" id="btn-and" href="#lataa">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.2 13.9 12 3.6 21.8c-.3-.2-.5-.6-.5-1.1V3.3c0-.5.2-.9.5-1.1zM15.3 13.4l2.6 2.5-11.3 6.4 8.7-8.9zM18.9 10.7c.7.4 1.1 1 1.1 1.4s-.4 1-1.1 1.4l-2 1.1-2.9-2.5 2.9-2.5 2 1.1zM6.6 1.7l11.3 6.4-2.6 2.5L6.6 1.7z"/></svg>
+      <span><small>Hanki</small><b>Google Play</b></span>
+    </a>
+  </div>
+  <p class="note" id="storeNote">Ilmainen lataus · Helsinki ja lähialueet</p>
+</div></header>
+
+<section><div class="wrap">
+  <div class="kicker">Miksi me</div>
+  <h2>Kolme voittajaa, ei yhtä</h2>
+  <p class="lead">Ruokalähetys toimii vain, jos se kannattaa kaikille kolmelle.
+     Siksi rakensimme sen niin.</p>
+
+  <div class="three">
+    <div class="card">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10h18M6 10V7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3M5 10l1.3 8.3A2 2 0 0 0 8.3 20h7.4a2 2 0 0 0 2-1.7L19 10"/></svg></div>
+      <h3>Asiakkaalle</h3>
+      <div class="big">Matala kuljetusmaksu</div>
+      <p>Loppusumma ratkaisee, ei listahinta. Näet maksun selkeästi ennen tilausta —
+         ei yllätyksiä kassalla.</p>
+    </div>
+    <div class="card">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 9h16l-1 11H5L4 9zM8 9V6a4 4 0 0 1 8 0v3"/></svg></div>
+      <h3>Ravintolalle</h3>
+      <div class="big">Pienempi komissio</div>
+      <p>Kun välistä ei oteta niin paljon, ravintola voi pitää hinnat kohtuullisina
+         ja tehdä silti tulosta.</p>
+    </div>
+    <div class="card">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 17a2 2 0 1 0 4 0 2 2 0 1 0-4 0M15 17a2 2 0 1 0 4 0 2 2 0 1 0-4 0M7 17h8M14 7h3l2 5v5M14 17V7H7v10"/></svg></div>
+      <h3>Lähetille</h3>
+      <div class="big">Parempi palkkio</div>
+      <p>Toimituksesta maksetaan kunnolla. Se näkyy siinä, kuinka nopeasti ruoka on ovella
+         ja missä kunnossa se saapuu.</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="band"><div class="wrap">
+  <div class="kicker">Rehellisesti</div>
+  <h2>Miten kuljetusmaksu voi olla matalampi?</h2>
+  <p class="quote">Emme ole kansainvälinen ketju, jolla on satojen ihmisten organisaatio
+     ja pörssin tuottovaatimus. Olemme helsinkiläinen yritys, jonka kulurakenne on
+     kevyempi — ja se ero menee kuljetusmaksuun, ei markkinointibudjettiin.</p>
+  <p class="lead" style="margin-top:26px">Ei kampanjahintaa, joka nousee kolmen kuukauden päästä.
+     Näin me toimimme.</p>
+</div></section>
+
+<section><div class="wrap">
+  <div class="kicker">Näin se toimii</div>
+  <h2>Kolme askelta ruokaan</h2>
+  <div class="steps">
+    <div class="step"><div><h3>Valitse ravintola</h3>
+      <p>Näet heti, mitkä paikat toimittavat sinun osoitteeseesi ja mitä kuljetus maksaa.</p></div></div>
+    <div class="step"><div><h3>Tilaa ja maksa</h3>
+      <p>Kuljetusmaksu näkyy selvästi ennen maksamista. Ei piilotettuja palvelumaksuja.</p></div></div>
+    <div class="step"><div><h3>Seuraa kuljetusta</h3>
+      <p>Näet kartalta, missä lähetti on ja milloin ruoka on ovella.</p></div></div>
+  </div>
+</div></section>
+
+<section class="final" id="lataa"><div class="wrap">
+  <div class="kicker">Aloita</div>
+  <h2>Kokeile kerran — vertaa loppusummaa</h2>
+  <p class="lead">Se on koko myyntipuheemme. Tilaa yhden kerran ja katso, mitä maksoit.</p>
+
+  <div class="stores">
+    <a class="store" href="#" id="btn-ios2">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.7 12.9c0-2.2 1.8-3.3 1.9-3.3-1-1.5-2.6-1.7-3.2-1.7-1.4-.1-2.7.8-3.4.8-.7 0-1.8-.8-2.9-.8-1.5 0-2.9.9-3.7 2.2-1.6 2.7-.4 6.8 1.1 9 .7 1.1 1.6 2.3 2.7 2.3 1.1 0 1.5-.7 2.8-.7s1.7.7 2.9.7c1.2 0 1.9-1.1 2.6-2.2.8-1.2 1.2-2.4 1.2-2.5-.1 0-2-.8-2-3.1zM14.5 5.6c.6-.7 1-1.7.9-2.7-.9 0-2 .6-2.6 1.3-.6.6-1.1 1.6-.9 2.6 1 .1 2-.5 2.6-1.2z"/></svg>
+      <span><small>Lataa</small><b>App Store</b></span></a>
+    <a class="store" href="#" id="btn-and2">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.2 13.9 12 3.6 21.8c-.3-.2-.5-.6-.5-1.1V3.3c0-.5.2-.9.5-1.1zM15.3 13.4l2.6 2.5-11.3 6.4 8.7-8.9zM18.9 10.7c.7.4 1.1 1 1.1 1.4s-.4 1-1.1 1.4l-2 1.1-2.9-2.5 2.9-2.5 2 1.1zM6.6 1.7l11.3 6.4-2.6 2.5L6.6 1.7z"/></svg>
+      <span><small>Hanki</small><b>Google Play</b></span></a>
+  </div>
+
+  <!-- CC: see vorm peab postitama TÄPSELT sama endpointi ja sama väljanimega,
+       mis avalehe ooteleht, ja käivitama sama gtag('event','generate_lead')
+       ning Meta 'Lead' sündmuse. Ära tee uut endpointi ega uut sündmusenime —
+       generate_lead on Google Adsis ainus Primary konversioon. -->
+  <form class="wait" id="waitForm" style="display:none">
+    <input type="email" id="wl2-email" name="email" placeholder="sähköpostiosoitteesi" required>
+    <button type="submit" id="wl2-submit">Ilmoita minulle</button>
+  </form>
+  <label class="wl2-consent" id="wl2-consent-row" style="display:none">
+    <input type="checkbox" id="wl2-consent">
+    <span>Haluan sähköpostiini tiedon, kun Fin Delivery avautuu Helsingissä.</span>
+  </label>
+  <p class="wl2-reassure" id="wl2-reassure" style="display:none">Voit peruuttaa milloin tahansa.
+    Emme luovuta osoitettasi eteenpäin. <a href="/privacy/">Tietosuojaseloste</a></p>
+  <p class="wl2-msg" id="wl2-msg" role="status" aria-live="polite"></p>
+  <p class="note" id="finalNote" style="color:var(--mut)">Ilmainen lataus · Helsinki ja lähialueet</p>
+</div></section>
+
+<footer><div class="wrap">
+  <div>
+    <div class="logo" style="color:#fff;margin-bottom:12px"><div class="mark">F</div>Fin Delivery</div>
+    <a href="/privacy/">Tietosuoja</a><a href="/terms/">Käyttöehdot</a><a href="mailto:info@fin-delivery.com">Ota yhteyttä</a>
+  </div>
+  <div>
+    <a href="/become-a-partner">Ravintolalle</a><a href="/become-a-courier">Lähetiksi</a>
+  </div>
+  <div class="legal">Fin Delivery Oy · Y-tunnus 3584658-3 · Nöykkiönlaaksontie 42, 02330 Espoo</div>
+</div></footer>
+
+<script>
+/* ------------------------------------------------------------------
+   LAUNCHED = false  ->  näytetään sähköpostilomake, kauppanapit piiloon
+   LAUNCHED = true   ->  näytetään kauppanapit, lomake piiloon
+   Vaihda yksi rivi julkaisupäivänä.
+------------------------------------------------------------------- */
+var LAUNCHED = false;
+
+var IOS_URL = "https://apps.apple.com/fi/app/id6794397911";
+var AND_URL = "https://play.google.com/store/apps/details?id=com.ecobit.customer";
+
+(function () {
+  var ua = navigator.userAgent || "";
+  var isIOS = /iPad|iPhone|iPod/.test(ua) || (ua.includes("Mac") && "ontouchend" in document);
+  var isAnd = /Android/.test(ua);
+
+  var ios = [document.getElementById("btn-ios"), document.getElementById("btn-ios2")];
+  var and = [document.getElementById("btn-and"), document.getElementById("btn-and2")];
+
+  ios.forEach(function (b) { if (b) b.href = IOS_URL; });
+  and.forEach(function (b) { if (b) b.href = AND_URL; });
+
+  if (isIOS) and.forEach(function (b) { if (b) b.classList.add("dim"); });
+  if (isAnd) ios.forEach(function (b) { if (b) b.classList.add("dim"); });
+
+  if (!LAUNCHED) {
+    document.querySelectorAll(".stores").forEach(function (s) { s.style.display = "none"; });
+    var f = document.getElementById("waitForm");
+    if (f) f.style.display = "flex";
+    var cr = document.getElementById("wl2-consent-row");
+    if (cr) cr.style.display = "flex";
+    var rr = document.getElementById("wl2-reassure");
+    if (rr) rr.style.display = "block";
+    var t = "Sovellus julkaistaan pian — jätä sähköpostisi, niin kerromme ensimmäisenä.";
+    var n1 = document.getElementById("storeNote"), n2 = document.getElementById("finalNote");
+    if (n1) n1.textContent = t;
+    if (n2) n2.textContent = t;
+  }
+})();
+</script>
+<!-- Cookie consent banner -->
+<div id="fd-cookie-banner" style="display:none;position:fixed;left:0;right:0;bottom:0;z-index:9999;background:#0F3D2E;color:#fff;padding:16px 20px;box-shadow:0 -2px 12px rgba(0,0,0,.25);font-size:14px;line-height:1.5;">
+  <div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;justify-content:space-between;">
+    <span style="flex:1 1 320px;">Käytämme evästeitä kävijätilastointiin ja markkinoinnin kohdentamiseen. Jaamme tietoja myös kolmansille osapuolille (Google, Meta) mainonnan kohdentamista ja mittaamista varten. &mdash; We use cookies for visitor analytics and marketing targeting. We also share data with third parties (Google, Meta) for advertising targeting and measurement. <a href="/privacy/" style="color:#9fe3c5;text-decoration:underline;">Lue lisää / Learn more</a></span>
+    <span style="display:flex;gap:10px;flex:0 0 auto;">
+      <button id="fd-cookie-reject" style="cursor:pointer;border:1px solid rgba(255,255,255,.4);background:transparent;color:#fff;padding:9px 18px;border-radius:8px;font-size:14px;">Hylkää / Decline</button>
+      <button id="fd-cookie-accept" style="cursor:pointer;border:0;background:#fff;color:#0F3D2E;padding:9px 18px;border-radius:8px;font-weight:600;font-size:14px;">Hyväksy / Accept</button>
+    </span>
+  </div>
+</div>
+<script>
+(function(){
+  var b=document.getElementById('fd-cookie-banner');
+  var s=null; try{s=localStorage.getItem('fd_consent_v3');}catch(e){}
+  if(!s){b.style.display='block';}
+  function choose(v){ try{localStorage.setItem('fd_consent_v3',v);}catch(e){}
+    if(v==='granted'&&typeof gtag==='function'){fdGrantAll();fdInitPixel();fdRunAttr();}
+    b.style.display='none'; }
+  document.getElementById('fd-cookie-accept').onclick=function(){choose('granted');};
+  document.getElementById('fd-cookie-reject').onclick=function(){choose('denied');};
+})();
+</script>
+
+<!-- waitlist form — SAMA endpoint, SAMAD väljanimed, SAMAD sündmused mis avalehel.
+     Erinevused ainult kaks ja mõlemad on tahtlikud:
+       source: 'app_landing'  (avalehel 'landing_hero') — et neid saaks eristada
+       lang:   'fi'           (see leht on ainult soome keeles)
+     API schema on .strict() ja nõuab consent: z.literal(true) — sellepärast on
+     vormil märkeruut, täpselt nagu avalehel. -->
+<script>
+(function(){
+  var API='https://api.fin-delivery.com';
+  var TC_VERSION='2026-07';
+  var form=document.getElementById('waitForm');
+  if(!form) return;
+  var email=document.getElementById('wl2-email');
+  var consent=document.getElementById('wl2-consent');
+  var row=document.getElementById('wl2-consent-row');
+  var btn=document.getElementById('wl2-submit');
+  var msg=document.getElementById('wl2-msg');
+  function show(txt,cls){msg.textContent=txt;msg.className='wl2-msg '+(cls||'');}
+  var M={
+    invalid:'Tarkista sähköpostiosoite.',
+    consent:'Rastita suostumus, kiitos.',
+    ok:'Kiitos! Ilmoitamme heti, kun avaamme.',
+    dupe:'Olet jo listalla — kiitos!',
+    rate:'Liian monta yritystä. Yritä hetken kuluttua.',
+    err:'Jokin meni pieleen. Yritä uudelleen.'
+  };
+  var re=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var v=(email.value||'').trim();
+    if(!re.test(v)){show(M.invalid,'err');email.focus();return;}
+    if(!consent.checked){show(M.consent,'err');return;}
+    btn.disabled=true;show('','');
+    var p={email:v,consent:true,lang:'fi',source:'app_landing',tc_version:TC_VERSION};
+    if(window.FD_ATTR)Object.assign(p,window.FD_ATTR);
+    fetch(API+'/api/v1/waitlist',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(p)
+    }).then(function(r){
+      if(r.status===201){form.reset();show(M.ok,'ok');
+        try{if(typeof gtag==='function'&&localStorage.getItem('fd_consent_v3')==='granted'){gtag('event','generate_lead',{campaign:(window.FD_ATTR||{}).utm_campaign||undefined,source:(window.FD_ATTR||{}).utm_source||undefined,medium:(window.FD_ATTR||{}).utm_medium||undefined});if (typeof fbq === 'function') fbq('track','Lead',{content_name:'waitlist', content_category:'consumer'});}}catch(e){}
+        return;}
+      if(r.status===409){form.reset();show(M.dupe,'ok');return;}
+      if(r.status===429){show(M.rate,'err');return;}
+      if(r.status===400){show(M.invalid,'err');return;}
+      show(M.err,'err');
+    }).catch(function(){show(M.err,'err');})
+      .then(function(){btn.disabled=false;});
+  });
+})();
+</script>
+
+</body></html>
