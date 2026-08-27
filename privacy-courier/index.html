@@ -209,13 +209,14 @@
     <li><strong>Kauppiaat</strong> näkevät nimesi ja saapumisesi noutoa varten.</li>
     <li><strong>Stripe</strong> palkkioiden maksamiseksi. Palkkiot maksetaan Stripen kautta ilmoittamallesi pankkitilille.</li>
     <li><strong>Amazon Web Services (Lightsail)</strong> palvelinten ylläpitoon. Palvelimet sijaitsevat <strong>Tukholmassa, Ruotsissa</strong> (alue eu-north-1) eli EU:n alueella.</li>
-    <li><strong>Ilmoitusten välitys ja tekninen seuranta</strong>: <span class="todo">[[TÄYTETTÄVÄ: käytetäänkö kuriirisovelluksessa Firebase-push- tai muita SDK:ita — jos ei, tämä rivi poistetaan]]</span></li>
+    <li><strong>Push-ilmoitukset:</strong> Sovellus käyttää Expo Push Service -palvelua, joka välittää ilmoitukset Apple Push Notification service (APNs)- tai Google Firebase Cloud Messaging (FCM) -palveluun. Käsittelemme laitteen push-tunnistetta, sovelluksen kielivalintaa ja ilmoituksen toimittamiseen tarvittavia teknisiä tietoja. Uusia toimitustarjouksia koskevia push-ilmoituksia lähetetään vain silloin, kun olet sovelluksessa työvuorossa; työvuoron ulkopuolella palvelin estää niiden lähettämisen.</li>
     <li><strong>Viranomaiset</strong>, jos laki sitä edellyttää.</li>
   </ul>
   <p>Emme myy henkilötietojasi. Emme luovuta niitä mainosverkostoille.</p>
 
   <h2>7. Siirrot EU:n ja ETA:n ulkopuolelle</h2>
   <p><strong>Sijaintitietosi ja työvuorotietosi säilytetään EU:n alueella</strong>, Amazon Web Servicesin Tukholman alueella (eu-north-1). Siirtoa EU:n ulkopuolelle ei näiden osalta tapahdu.</p>
+  <p>Push-tunnistetta ja ilmoituksen toimittamiseen tarvittavia teknisiä tietoja käsittelevät Expo sekä laitteestasi riippuen Apple tai Google. Jos käsittelyyn liittyy siirto Euroopan talousalueen ulkopuolelle, siirto perustuu Euroopan komission riittävyyspäätökseen tai komission vahvistamiin vakiolausekkeisiin.</p>
   <p>Stripe, jonka kautta palkkiot maksetaan, on yhdysvaltalainen yhtiö. Sen osalta mahdollinen siirto perustuu joko Euroopan komission riittävyyspäätökseen (EU–US Data Privacy Framework) tai komission vahvistamiin vakiolausekkeisiin.</p>
 
   <h2>8. Säilytysajat</h2>
@@ -271,7 +272,7 @@
   <p><a href="/become-a-courier/">Takaisin kuriirisivulle</a></p>
 
   <footer class="legal">
-    Fin Delivery Oy · Y-tunnus 3584658-3 · Nöykkiönlaaksontie 42, 02330 Espoo · Päivitetty 7.8.2026
+    Fin Delivery Oy · Y-tunnus 3584658-3 · Nöykkiönlaaksontie 42, 02330 Espoo · Päivitetty 27.8.2026
     <div class="links"><a href="/privacy/">Tietosuojaseloste</a> · <a href="/terms/">Käyttöehdot</a> · <a href="/privacy-courier/">Kuriirien tietosuojaseloste</a></div>
   </footer>
 

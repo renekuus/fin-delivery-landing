@@ -209,13 +209,14 @@
     <li><strong>Merchants</strong> see your name and your arrival for pickup.</li>
     <li><strong>Stripe</strong>, to pay you. Fees are paid out through Stripe to the bank account you provide.</li>
     <li><strong>Amazon Web Services (Lightsail)</strong>, for hosting. Our servers are located in <strong>Stockholm, Sweden</strong> (region eu-north-1), inside the EU.</li>
-    <li><strong>Notification delivery and technical monitoring</strong>: <span class="todo">[[TO BE COMPLETED: whether the courier app uses Firebase push or other SDKs — if not, delete this line]]</span></li>
+    <li><strong>Push notifications:</strong> The app uses Expo Push Service, which delivers notifications through Apple Push Notification service (APNs) or Google Firebase Cloud Messaging (FCM). We process the device push token, the app's language choice and the technical data needed to deliver the notification. Push notifications about new delivery offers are sent only while you are on shift in the app; while you are off shift, the server blocks them.</li>
     <li><strong>Authorities</strong>, where required by law.</li>
   </ul>
   <p>We do not sell your personal data. We do not share it with advertising networks.</p>
 
   <h2>7. Transfers outside the EU/EEA</h2>
   <p><strong>Your location and shift data are held inside the EU</strong>, in Amazon Web Services' Stockholm region (eu-north-1). No transfer outside the EU takes place for this data.</p>
+  <p>The push token and technical data needed to deliver a notification are processed by Expo and, depending on your device, Apple or Google. Where this involves a transfer outside the European Economic Area, the transfer relies on a European Commission adequacy decision or the Commission's Standard Contractual Clauses.</p>
   <p>Stripe, through which your fees are paid, is a US company. For it, any transfer relies either on a European Commission adequacy decision (EU–US Data Privacy Framework) or on the Commission's Standard Contractual Clauses.</p>
 
   <h2>8. Retention periods</h2>
@@ -271,7 +272,7 @@
   <p><a href="/become-a-courier/">Back to the courier page</a></p>
 
   <footer class="legal">
-    Fin Delivery Oy · Business ID 3584658-3 · Nöykkiönlaaksontie 42, 02330 Espoo · Updated 7 August 2026
+    Fin Delivery Oy · Business ID 3584658-3 · Nöykkiönlaaksontie 42, 02330 Espoo · Updated 27 August 2026
     <div class="links"><a href="/privacy/en/">Privacy Notice</a> · <a href="/terms/en/">Terms of Service</a> · <a href="/privacy-courier/en/">Courier App Privacy Notice</a></div>
   </footer>
 
