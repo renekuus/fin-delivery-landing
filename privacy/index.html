@@ -162,7 +162,7 @@
     <li><strong>Myyjä</strong>, jolta tilaat, saa tilauksen sisällön ja etunimesi. Se ei saa osoitettasi eikä puhelinnumeroasi.</li>
     <li><strong>Kuriiri</strong> saa toimitusosoitteen, toimitusohjeet ja etunimesi toimituksen ajaksi. Toimituksen jälkeen osoite ei jää kuriirin nähtäville.</li>
     <li><strong>Stripe</strong> maksujen käsittelyä ja palautuksia varten. Korttitietosi menevät suoraan Stripelle — me emme näe emmekä tallenna niitä.</li>
-    <li><strong>Google (Firebase)</strong> ilmoitusten toimittamiseen ja teknisten virheiden seurantaan.</li>
+    <li><strong>Expo Push Service, Google Firebase Cloud Messaging (FCM) ja Apple Push Notification service (APNs)</strong> tilaukseen liittyvien push-ilmoitusten toimittamiseen sekä <strong>Google Firebase</strong> teknisten virheiden seurantaan.</li>
     <li><strong>Osoitehaku- ja geokoodauspalvelujen tarjoajat</strong>, tällä hetkellä Digitransit (HSL:n, Fintrafficin ja TVV LMJ Oy:n tarjoama palvelualusta), osoite-ehdotusten ja käänteisen osoitehaun tuottamiseen Suomessa; välitettävät tiedot on kuvattu kohdassa 4.4.</li>
     <li><strong>Mainonnan ja käytön mittaamiseen käyttämämme palveluntarjoajat</strong>, esimerkiksi Google (Analytics), Meta ja AppsFlyer — suostumuksesi perusteella, katso luku 8.1.</li>
     <li><strong>Amazon Web Services (Lightsail)</strong> palvelinten ylläpitoon. Palvelimet sijaitsevat <strong>Tukholmassa, Ruotsissa</strong> (alue eu-north-1) eli EU:n alueella.</li>
@@ -172,7 +172,7 @@
 
   <h2>7. Siirrot EU:n ja ETA:n ulkopuolelle</h2>
   <p><strong>Tietokantamme ja palvelimemme sijaitsevat EU:n alueella</strong>, Amazon Web Servicesin Tukholman alueella (eu-north-1). Tilaustesi, osoitteidesi ja tilitietojesi osalta siirtoa EU:n ulkopuolelle ei tapahdu.</p>
-  <p>Osa käyttämistämme palveluista on yhdysvaltalaisia yhtiöitä: Stripe (maksut), Google (ilmoitukset, virheseuranta ja mainonnan mittaus), AppsFlyer (mainonnan mittaus) ja Meta (mainonnan mittaus). Näiden osalta mahdollinen siirto perustuu joko Euroopan komission riittävyyspäätökseen (EU–US Data Privacy Framework) tai komission vahvistamiin vakiolausekkeisiin.</p>
+  <p>Osa käyttämistämme palveluista on yhdysvaltalaisia yhtiöitä: Stripe (maksut), Expo (push-ilmoitusten välitys), Apple ja Google (push-ilmoitusten toimittaminen), Google (virheseuranta ja mainonnan mittaus), AppsFlyer (mainonnan mittaus) ja Meta (mainonnan mittaus). Näiden osalta mahdollinen siirto perustuu joko Euroopan komission riittävyyspäätökseen (EU–US Data Privacy Framework) tai komission vahvistamiin vakiolausekkeisiin.</p>
 
   <h2>8. Analytiikka, mainonta ja suostumus</h2>
 
@@ -303,7 +303,7 @@
   </p>
 
   <footer class="legal">
-    Fin Delivery Oy · Y-tunnus 3584658-3 · Nöykkiönlaaksontie 42, 02330 Espoo · Päivitetty 27.8.2026
+    Fin Delivery Oy · Y-tunnus 3584658-3 · Nöykkiönlaaksontie 42, 02330 Espoo · Päivitetty 28.8.2026
     <div class="links"><a href="/privacy/">Tietosuojaseloste</a> · <a href="/terms/">Käyttöehdot</a> · <a href="/privacy-courier/">Kuriirien tietosuojaseloste</a></div>
   </footer>
 

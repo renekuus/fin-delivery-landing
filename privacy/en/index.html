@@ -162,7 +162,7 @@
     <li><strong>The seller</strong> you order from receives the order contents and your first name. It does not receive your address or phone number.</li>
     <li><strong>The courier</strong> receives the delivery address, delivery instructions and your first name for the duration of the delivery. After the delivery the address is no longer visible to the courier.</li>
     <li><strong>Stripe</strong>, for processing payments and refunds. Your card details go directly to Stripe — we neither see nor store them.</li>
-    <li><strong>Google (Firebase)</strong>, for delivering notifications and monitoring technical errors.</li>
+    <li><strong>Expo Push Service, Google Firebase Cloud Messaging (FCM) and Apple Push Notification service (APNs)</strong>, for delivering transactional order push notifications, and <strong>Google Firebase</strong>, for monitoring technical errors.</li>
     <li><strong>Address-search and geocoding service providers</strong>, currently Digitransit (a service platform provided by HSL, Fintraffic and TVV LMJ Oy), for address suggestions and reverse address lookup in Finland; the data sent is described in section 4.4.</li>
     <li><strong>Providers we use to measure advertising and usage</strong>, for example Google (Analytics), Meta and AppsFlyer — on the basis of your consent, see section 8.1.</li>
     <li><strong>Amazon Web Services (Lightsail)</strong>, for hosting. Our servers are located in <strong>Stockholm, Sweden</strong> (region eu-north-1), inside the EU.</li>
@@ -172,7 +172,7 @@
 
   <h2>7. Transfers outside the EU/EEA</h2>
   <p><strong>Our database and servers are located inside the EU</strong>, in Amazon Web Services' Stockholm region (eu-north-1). No transfer outside the EU takes place for your orders, addresses or account details.</p>
-  <p>Some of the services we use are US companies: Stripe (payments), Google (notifications, error monitoring and advertising measurement), AppsFlyer (advertising measurement) and Meta (advertising measurement). For these, any transfer relies either on a European Commission adequacy decision (EU–US Data Privacy Framework) or on the Commission's Standard Contractual Clauses.</p>
+  <p>Some of the services we use are US companies: Stripe (payments), Expo (push notification relay), Apple and Google (push notification delivery), Google (error monitoring and advertising measurement), AppsFlyer (advertising measurement) and Meta (advertising measurement). For these, any transfer relies either on a European Commission adequacy decision (EU–US Data Privacy Framework) or on the Commission's Standard Contractual Clauses.</p>
 
   <h2>8. Analytics, advertising and consent</h2>
 
@@ -303,7 +303,7 @@
   </p>
 
   <footer class="legal">
-    Fin Delivery Oy · Business ID 3584658-3 · Nöykkiönlaaksontie 42, 02330 Espoo · Updated 27 August 2026
+    Fin Delivery Oy · Business ID 3584658-3 · Nöykkiönlaaksontie 42, 02330 Espoo · Updated 28 August 2026
     <div class="links"><a href="/privacy/en/">Privacy Notice</a> · <a href="/terms/en/">Terms of Service</a> · <a href="/privacy-courier/en/">Courier App Privacy Notice</a></div>
   </footer>
 
