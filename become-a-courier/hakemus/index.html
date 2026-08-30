@@ -184,7 +184,7 @@
       <div class="field">
         <label data-i="id_doc">Henkilökortti tai passi</label>
         <div class="file"><div><div class="lab" data-i="id_doc_l">Lataa henkilökortti / passi</div><div class="sub" data-i="fhint">PDF, JPG tai PNG · enintään 10 MB</div></div>
-          <label class="btn-file"><span data-i="choose">Valitse tiedosto</span><input type="file" accept=".pdf,.jpg,.jpeg,.png" data-upload="id_document"></label></div>
+          <label class="btn-file"><span data-i="choose">Valitse tiedosto</span><input type="file" accept=".pdf,.jpg,.jpeg,.png" data-upload="id_document" required></label></div>
         <div class="fstat" data-stat="id_document"></div>
       </div>
     </div>
@@ -451,6 +451,7 @@
     else{var age=(Date.now()-new Date(p.date_of_birth))/(365.25*864e5);if(age<18)fail('date_of_birth','e_age');}
     if(!p.email)fail('email','e_req');else if(!EMAIL_RE.test(p.email))fail('email','e_email');
     if(!p.phone)fail('phone','e_req');else if(digits(p.phone).length<7)fail('phone','e_phone');
+    if(!p.id_document_key){var iw=document.querySelector('input[data-upload="id_document"]').closest('.field');boxErr(iw,ERRT.e_permit.fi,ERRT.e_permit.en);if(!firstBad)firstBad=iw;}
     if(!p.citizenship_status)fail('citizenship_status','e_choose');
     if(!p.model)fail('model','e_choose');
     if(!p.vehicle_type)fail('vehicle_type','e_choose');
@@ -458,6 +459,8 @@
     if(!p.tc_accepted)fail('tc_accepted','e_check');
     if(!p.privacy_accepted)fail('privacy_accepted','e_check');
     if(p.citizenship_status==='non_eu'&&!p.work_permit_key){var pw=document.querySelector('#permitWrap');boxErr(pw,ERRT.e_permit.fi,ERRT.e_permit.en);if(!firstBad)firstBad=pw;}
+    if((p.vehicle_type==='car'||p.vehicle_type==='scooter')&&!p.drivers_license_key){var dl=document.querySelector('input[data-upload="drivers_license"]').closest('.field');boxErr(dl,ERRT.e_permit.fi,ERRT.e_permit.en);if(!firstBad)firstBad=dl;}
+    if((p.vehicle_type==='car'||p.vehicle_type==='scooter')&&!p.insurance_key){var ins=document.querySelector('input[data-upload="insurance"]').closest('.field');boxErr(ins,ERRT.e_permit.fi,ERRT.e_permit.en);if(!firstBad)firstBad=ins;}
     if(p.model==='entrepreneur'&&!/^\d{7}-\d$/.test(p.y_tunnus||''))fail('y_tunnus',(p.y_tunnus?'e_ytunnus':'e_req'));
     if(firstBad){firstBad.scrollIntoView({behavior:'smooth',block:'center'});return;}
 
