@@ -182,7 +182,11 @@
     <!-- 3 -->
     <div class="sec">
       <h2 data-i="s3">3 · Sijainti &amp; aukiolo</h2>
-      <div class="field"><label data-i="address">Osoite</label><input type="text" name="address" maxlength="300" placeholder="Katu 1, Helsinki"></div>
+      <div class="field"><label data-i="street">Katu *</label><input type="text" name="street" maxlength="120" required placeholder="Paasivuorenkatu"></div>
+      <div class="field"><label data-i="house_number">Talon numero *</label><input type="text" name="house_number" maxlength="30" required placeholder="2 A"></div>
+      <div class="field"><label data-i="city">Kaupunki *</label><input type="text" name="city" maxlength="120" autocomplete="address-level2" required placeholder="Helsinki"></div>
+      <div class="field"><label data-i="postal_code">Postinumero *</label><input type="text" name="postal_code" maxlength="5" inputmode="numeric" autocomplete="postal-code" required placeholder="00530"></div>
+      <div class="field"><p data-i="gps_note">Fin Delivery tarkistaa osoitteen ja vahvistaa GPS-sijainnin ennen hyväksymistä.</p><input type="hidden" name="address"></div>
       <div class="row">
         <div class="field"><label data-i="category">Kategoria / keittiö <span class="req">*</span></label>
           <select name="category" id="category" required>
@@ -245,6 +249,7 @@
   const keys={};
   const T={
     fi:{chip:'Helsinki · avataan pian',title:'Ryhdy kumppaniksi',sub:'Täytä hakemus ja lataa vaaditut luvat. Käsittelemme hakemuksen henkilökohtaisesti ja lähetämme sähköpostin, kun sinut on hyväksytty.',
+      street:'Katu *',house_number:'Talon numero *',city:'Kaupunki *',postal_code:'Postinumero *',gps_note:'Fin Delivery tarkistaa osoitteen ja vahvistaa GPS-sijainnin ennen hyväksymistä.',
       s1:'1 · Yritys',bname:'Yrityksen nimi',ytunnus:'Y-tunnus',ytunh:'Muodossa 1234567-8.',vat:'ALV-tunnus (VAT)',
       s2:'2 · Elintarvikeluvat',s2h:'Vaaditaan ravintoloilta, kioskeilta ja kaupoilta.',elint:'Elintarvikeilmoitus (Ilppa)',elint_l:'Lataa elintarvikeilmoitus',omav:'Omavalvontasuunnitelma',omav_l:'Lataa omavalvonta',staff:'Vahvistan henkilöstön salmonellatodistukset (avoimen ruoan käsittelijät).',
       s3:'3 · Sijainti & aukiolo',address:'Osoite',category:'Kategoria / keittiö',hours:'Aukioloajat',opt_choose:'— valitse —',cat_restaurant:'Ravintola',cat_store:'Ruokakauppa',cat_other:'Muu',
@@ -256,6 +261,7 @@
       up:'Ladataan…',ok:'Ladattu ✓',ferr:'Lataus epäonnistui',big:'Tiedosto liian suuri (enintään 10 MB)',
       m_valid:'Täytä kaikki pakolliset kentät oikein.',m_dup:'Tällä Y-tunnuksella on jo tehty hakemus.',m_rate:'Liian monta yritystä. Yritä hetken kuluttua.',m_err:'Jokin meni pieleen. Yritä uudelleen.'},
     en:{chip:'Helsinki · opening soon',title:'Become a partner',sub:'Fill in the form and upload the required permits. We review every application personally and email you once you are approved.',
+      street:'Street *',house_number:'Building number *',city:'City *',postal_code:'Postcode *',gps_note:'Fin Delivery checks the address and confirms the GPS location before approval.',
       s1:'1 · Company',bname:'Company name',ytunnus:'Business ID (Y-tunnus)',ytunh:'Format 1234567-8.',vat:'VAT ID',
       s2:'2 · Food permits',s2h:'Required for restaurants, kiosks and shops.',elint:'Food business notification (Ilppa)',elint_l:'Upload notification',omav:'Own-control plan (omavalvonta)',omav_l:'Upload own-control plan',staff:'I confirm staff salmonella certificates (open-food handlers).',
       s3:'3 · Location & hours',address:'Address',category:'Category / cuisine',hours:'Opening hours',opt_choose:'— choose —',cat_restaurant:'Restaurant',cat_store:'Grocery store',cat_other:'Other',
@@ -271,6 +277,8 @@
 
   /* --- inline field errors (item 2) --- */
   var ERRT={
+    e_postal:{fi:'Anna viisinumeroinen postinumero.',en:'Enter a five-digit postcode.'},
+    e_house:{fi:'Anna talon numero (esim. 2 tai 2 A).',en:'Enter the building number (e.g. 2 or 2 A).'},
     e_req:{fi:'Ole hyvä ja täytä tämä kenttä.',en:'Please fill in this field.'},
     e_email:{fi:'Tarkista sähköpostiosoite — siinä voi olla kirjoitusvirhe tai ylimääräinen välilyönti.',en:'Please check your email address — there may be a typo or an extra space.'},
     e_phone:{fi:'Tarkista puhelinnumero (esim. +358 40 123 4567).',en:'Please check the phone number (e.g. +358 40 123 4567).'},
@@ -369,7 +377,9 @@
     };
     const opt=(k,v)=>{if(v!=null&&v!=='')p[k]=v;};
     opt('vat_id',g('vat_id').value.trim());
-    opt('address',g('address').value.trim());
+    const street=g('street').value.trim(),house=g('house_number').value.trim(),city=g('city').value.trim(),postal=g('postal_code').value.trim();
+    p.address=street+' '+house+', '+postal+' '+city;
+    g('address').value=p.address;
     const hrs=g('opening_hours').value.trim();if(hrs)p.opening_hours={text:hrs};
     opt('signatory_name',g('signatory_name').value.trim());
     opt('iban',g('iban').value.trim());
@@ -381,6 +391,10 @@
     var firstBad=null;
     function fail(name,key){setErrK(name,key);if(!firstBad)firstBad=fieldBox(name);}
     if(!p.business_name)fail('business_name','e_req');
+    if(!street)fail('street','e_req');
+    if(!house)fail('house_number','e_req');else if(!/^\d[\p{L}\d\s/–-]*$/u.test(house))fail('house_number','e_house');
+    if(!city)fail('city','e_req');
+    if(!postal)fail('postal_code','e_req');else if(!/^\d{5}$/.test(postal))fail('postal_code','e_postal');
     if(!/^\d{7}-\d$/.test(p.y_tunnus||''))fail('y_tunnus',(p.y_tunnus?'e_ytunnus':'e_req'));
     if(!p.contact_name)fail('contact_name','e_req');
     if(!p.email)fail('email','e_req');else if(!EMAIL_RE.test(p.email))fail('email','e_email');
